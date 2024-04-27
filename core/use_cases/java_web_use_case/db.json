@@ -1,0 +1,194 @@
+{
+    "functions": {
+        "new_project": {
+            
+            "steps": [
+              {"create_folder": ["<pc> args[2] </pc>"]},
+              {"new_layer": ["args[1]", "args[2]", "core", "", "args[1].args[2].core.use_cases"]},
+              {"new_layer": ["args[1]", "args[2]", "adaptadores", "-adapters", "args[1].args[2].adapters.use_cases"]},
+              {"new_layer": ["args[1]", "args[2]", "montadores", "-assemblers", "args[1].args[2].assemblers.use_cases"]},
+              {"change_folder": ["<path><pc>args[2]</pc></path>"]},
+              {"create_folder": ["<pc> args[2] provisionadores</pc>"]}
+            ]
+        },
+        "clear_all": {
+          
+          "steps": [
+            {"clear_all": "None"}
+          ]
+        },
+        "install_all": {
+          
+          "steps": [
+            {"install_all_project": "None"}
+          ]
+        },
+        "c_i": {
+          
+          "steps": [
+            {"clear_all": "None"},
+            {"install_all":  "None"}
+          ]
+        },
+        "new_fuc": {
+          
+          "steps": [
+            {"walk_to_use_case_layer": ["Core"]},
+            {"create_folder": ["<sc>args[1]</sc>"]},
+
+            {"create_file_based_in_template":  ["<sc>args[1]</sc>/", "<pc>args[1] use case</pc>.java", "use_case.txt",
+              ["args[1]"]]},
+
+            {"function_core_layer": ["","args[1]"]},
+            {"create_file_based_in_template":  ["implementations/",
+              "<pc>args[1] use case implementation</pc>.java",
+              "use_case_implementation.txt", ["args[1]"]]},
+
+            {"create_folder": ["io/inputs"]},
+            {"create_folder": ["io/outputs"]},
+            {"create_file_based_in_template":  ["io/inputs/",
+              "<pc>args[1] use case input</pc>.java",
+              "use_case_input.txt", ["args[1]"]]},
+
+            {"create_file_based_in_template":  ["io/outputs/",
+              "<pc>args[1] use case output</pc>.java",
+              "use_case_output.txt", ["args[1]"]]},
+            {"return_root_path": "None"},
+
+            {"function_adapters_layer": ["", "args[1]"]},
+            {"function_assembler_layer": ["", "args[1]"]}
+          ]
+        },
+        "new_cuc": {
+          
+          "steps": [
+             {"walk_to_use_case_layer": ["Core"]},
+            {"create_folder": ["<sc>args[1]</sc>"]},
+
+            {"create_file_based_in_template":  ["<sc>args[1]</sc>/", "<pc>args[1] use case</pc>.java", "use_case_cuc.txt",
+              ["args[1]"]]},
+
+            {"function_core_layer": ["","args[1]"]},
+            {"create_file_based_in_template":  ["implementations/",
+              "<pc>args[1] use case implementation</pc>.java",
+              "implementation_cuc.txt", ["args[1]"]]},
+            {"create_folder": ["io/inputs"]},
+
+             {"create_file_based_in_template":  ["io/inputs/",
+              "<pc>args[1] use case input</pc>.java",
+              "use_case_input.txt", ["args[1]"]]},
+
+            {"return_root_path": "None"},
+
+            {"function_adapters_layer": ["", "args[1]"]},
+            {"function_assembler_layer": ["", "args[1]"]}
+          ]
+        },
+        "new_suc": {
+          "steps": [
+            {"walk_to_use_case_layer": ["Core"]},
+            {"create_folder": ["<sc>args[1]</sc>"]},
+
+            {"create_file_based_in_template":  ["<sc>args[1]</sc>/", "<pc>args[1] use case</pc>.java", "use_case_suc.txt",
+              ["args[1]"]]},
+            {"function_core_layer": ["","args[1]"]},
+            {"create_file_based_in_template":  ["implementations/",
+              "<pc>args[1] use case implementation</pc>.java",
+              "implementation_suc.txt", ["args[1]"]]},
+            {"create_folder": ["io/outputs"]},
+
+            {"create_file_based_in_template":  ["io/outputs/",
+              "<pc>args[1] use case output</pc>.java",
+              "use_case_output.txt", ["args[1]"]]},
+            {"return_root_path": "None"},
+
+            {"function_adapters_layer": ["", "args[1]"]},
+            {"function_assembler_layer": ["", "args[1]"]}
+          ]
+        },
+        "new_entity": {
+          "steps": [
+            {"walk_to_entity_layer": ["Core"]},
+            {"create_folder": ["/entities/factories"]},
+            {"create_folder": ["/entities/implementations"]},
+            {"create_file_based_in_template": ["/entities/","<pc>args[1]</pc>.java", "entity.txt",["args[1]"]]},
+            {"create_file_based_in_template": ["/entities/factories/","<pc>args[1]</pc>Factory.java", "entityFactory.txt",["args[1]"]]},
+            {"create_file_based_in_template": ["/entities/implementations/","<pc>args[1]</pc>Implementation.java", "entityImplementation.txt",["args[1]"]]},
+            {"return_root_path": "None"}
+          ]
+        },
+        "function_core_layer": {
+          "steps": [
+
+            {"change_folder_partial_match": ["<sc>args[1]</sc>"]},
+            {"core_basic_dir": "None"},
+            {"create_folder": ["implementations/mappers"]},
+
+            {"create_file_based_in_template":  ["factories/", "<pc>args[1] use case factory</pc>.java",
+              "use_case_factory.txt", ["args[1]"]]},
+
+            {"create_file_based_in_template":  ["factories/dependency_wrapper/",
+              "<pc>args[1] use case dependency wrapper</pc>.java",
+              "dependency_wrapper.txt", ["args[1]"]]}
+          ]
+        },
+        "function_assembler_layer": {
+          "steps": [
+            {"walk_to_use_case_layer": ["Montadores"]},
+            {"create_folder": ["<sc>args[1]</sc>"]},
+            {"create_file_based_in_template":  ["<sc>args[1]</sc>/", "<pc>args[1] use case assembler</pc>.java", "assembler.txt", ["args[1]"]]},
+            {"return_root_path": "None"}
+          ]
+        },
+        "function_adapters_layer": {
+          "steps": [
+            {"walk_to_use_case_layer": ["Adaptadores"]},
+            {"create_folder": ["<sc>args[1]</sc>"]},
+            {"return_root_path": "None"}
+          ]
+        },
+        "walk_to_entity_layer": {
+          "steps": [
+            {"change_folder_partial_match": ["args[0]", "target"]},
+            {"change_folder_partial_match": ["entities", "target"]},
+            {"go_up": "None"}
+          ]
+        },
+        "walk_to_use_case_layer": {
+          "steps": [
+            {"change_folder_partial_match": ["args[0]", "target"]},
+            {"change_folder_partial_match": ["use_cases", "target"]}
+          ]
+        },
+        "new_layer": {
+            "steps": [
+              {"change_folder": ["<path><pc>args[1]</pc></path>"]},
+              {"create_folder": ["<pc> args[1] args[2]</pc>"]},
+              {"change_folder": ["<path><pc>args[1]</pc>/<pc>args[1] args[2]</pc></path>"]},
+              {"create_project": ["args[0]", "args[1]args[3]", "1.0","args[4]"]},
+              {"create_file_based_in_template":  ["args[1]args[3]/","pom.xml", "pomargs[3].txt",
+                ["args[0]", "args[1]", "args[2]", "args[3]"]]},
+              {"return_root_path": "None"}
+            ]
+        },
+        "core_basic_dir": {
+          "steps": [
+            {"create_folder": ["factories"]},
+            {"create_folder": ["factories/dependency_wrapper"]},
+            {"create_folder": ["implementations"]},
+            {"create_folder": ["implementations/ports"]},
+            {"create_folder": ["io"]}
+          ]
+        },
+        "--version": {
+            "steps": [
+              {"--version":  "None"}
+            ]
+        },
+        "-v": {
+            "steps": [
+              {"--version":  "None"}
+            ]
+        }
+    }
+}
