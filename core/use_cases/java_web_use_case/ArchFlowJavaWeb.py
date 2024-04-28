@@ -4,17 +4,17 @@ import subprocess
 import os
 import xml.etree.ElementTree as ET
 
-filter = Filter()
-
 
 class ArchFlowJavaWeb(ArchFlow):
+    filter = Filter()
+    POM_FILE = "pom.xml"
 
     def __init__(self):
         super().__init__()
         self.StringManipulator.tag_functions_user = {"artifact_id": self.get_artifact_id,
                                                      "group_id": self.get_group_id}
 
-    def create_project(self, group_id, artifact_id, version, package_name, dependencies=None):
+    def create_project(self, group_id, artifact_id, version, package_name):
         maven_command = [
             "mvn",
             "archetype:generate",  # Corrected the typo here
@@ -56,7 +56,7 @@ class ArchFlowJavaWeb(ArchFlow):
 
     def clear_all_project(self):
         self.OutputHandler.information_message("starting cleaning of all projects")
-        files_pom = self.DirectoryExplorer.list_files("pom.xml")
+        files_pom = self.DirectoryExplorer.list_files(self.POM_FILE)
         for project in files_pom:
             self.clean_project(project)
 
@@ -71,7 +71,7 @@ class ArchFlowJavaWeb(ArchFlow):
 
     def install_all_project(self):
         self.OutputHandler.information_message("starting installing of all projects")
-        files_pom = self.DirectoryExplorer.list_files("pom.xml")
+        files_pom = self.DirectoryExplorer.list_files(self.POM_FILE)
         for project in files_pom:
             self.install_project(project)
 
@@ -115,22 +115,22 @@ class ArchFlowJavaWeb(ArchFlow):
 ⣿⣿⠟⠁⠀⠀⠈⠉⠉⠁⠀⠀⠀⠀⠈⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
         """)
-        print("⚡️ Cae Version 1.1 ⚡️")
-        print("⚡️ ArchFlow Version 1.0 ⚡️")
-        print("ArchFlow is evolving... slowly. But hey, we still love him! 🤣⚡️")
+        print("⚡️ Cae Version 0.0.3 ⚡️")
+        print("⚡️ ArchFlow Version 0.1.4 ⚡️")
+        print("ArchFlow is evolving... slowly. But hey, we still love him! ⚡️")
 
     def read_content_pom(self):
-        poms = self.DirectoryExplorer.list_files("pom.xml")
-        core_pom_path = filter.find_one_obj_by_key(poms, "Core")
+        poms = self.DirectoryExplorer.list_files(self.POM_FILE)
+        core_pom_path = self.filter.find_one_obj_by_key(poms, "Core")
         content = self.DirectoryExplorer.read_file(core_pom_path)
         return self.extract_content_pom(content)
 
     def get_artifact_id(self, input_string):
-        group, artifact = self.read_content_pom()
+        _, artifact = self.read_content_pom()
         return artifact
 
     def get_group_id(self, input_string):
-        group, artifact = self.read_content_pom()
+        group, _ = self.read_content_pom()
         return group
 
     def extract_content_pom(self, content_pom):
