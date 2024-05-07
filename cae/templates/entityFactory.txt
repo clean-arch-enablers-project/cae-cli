@@ -1,6 +1,6 @@
-package <pk><group_id></group_id>.<artifact_id></artifact_id></pk>.entities.factory;
+package <pk><group_id></group_id>.<artifact_id></artifact_id></pk>.entities.factories;
 
-import <pk><group_id></group_id>.<artifact_id></artifact_id></pk>entities.<pc>args[0]</pc>;
+import <pk><group_id></group_id>.<artifact_id></artifact_id></pk>.entities.<pc>args[0]</pc>;
 import <pk><group_id></group_id>.<artifact_id></artifact_id></pk>.entities.implementations.<pc>args[0]</pc>Implementation;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
