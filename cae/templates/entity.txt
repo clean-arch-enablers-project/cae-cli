@@ -1,0 +1,12 @@
+package <pk><group_id></group_id>.<artifact_id></artifact_id></pk>.entities;
+
+import com.cae.entities.Entity;
+import lombok.Getter;
+import lombok.Setter;
+
+
+@Getter
+@Setter
+public abstract class <pc>args[0]</pc>  implements Entity {
+
+}

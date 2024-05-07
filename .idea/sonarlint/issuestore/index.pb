@@ -31,3 +31,15 @@ J
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+X
+(var/comandos para enviar uma nova versao,7\9\79313a7c1d664ac5b3809896cda0721d59a176b0
+]
+-.venv/Lib/site-packages/arch_flow/ArchFlow.py,b\7\b748d1492052c6d70a71db2399630aaa42e8e269
+J
+cae/templates/use_case.txt,3\1\31caf362e2a8870fde711c77696c4818996229ff
+H
+cae/templates/entity.txt,9\5\95f18d975fc82c040f5709b7b81fda41627bd399
+O
+cae/templates/entityFactory.txt,b\d\bd27af010049db2218da939bed4361a16ee6ae6e
+V
+&cae/templates/entityImplementation.txt,7\a\7a7f594525508c9d9864ccca0cbf8910fadc7981

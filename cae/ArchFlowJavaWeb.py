@@ -59,7 +59,7 @@ class ArchFlowJavaWeb(ArchFlow):
 
     def clear_all_project(self):
         self.OutputHandler.information_message("starting cleaning of all projects")
-        files_pom = self.DirectoryExplorer.list_files(self.POM_FILE)
+        files_pom = self.DirectoryExplorer.list_files(self.POM_FILE, os.getcwd())
         for project in files_pom:
             self.clean_project(project)
 
@@ -74,7 +74,7 @@ class ArchFlowJavaWeb(ArchFlow):
 
     def install_all_project(self):
         self.OutputHandler.information_message("starting installing of all projects")
-        files_pom = self.DirectoryExplorer.list_files(self.POM_FILE)
+        files_pom = self.DirectoryExplorer.list_files(self.POM_FILE, os.getcwd())
         for project in files_pom:
             self.install_project(project)
 
