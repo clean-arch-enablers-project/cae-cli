@@ -1,0 +1,9 @@
+package <pk><group_id></group_id>.<artifact_id></artifact_id></pk>.use_cases.<sc>args[0]</sc>.factories.dependency_wrapper;
+
+import com.cae.use_cases.dependency_wrappers.UseCaseDependencyWrapper;
+import lombok.Builder;
+
+@Builder
+public class <pc>args[0]</pc>UseCaseDependencyWrapper extends UseCaseDependencyWrapper {
+
+}

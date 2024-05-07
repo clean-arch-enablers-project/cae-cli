@@ -1,0 +1,8 @@
+package <pk><group_id></group_id>.<artifact_id></artifact_id></pk>.use_cases.<sc>args[0]</sc>;
+
+import <pk><group_id></group_id>.<artifact_id></artifact_id></pk>.use_cases.<sc>args[0]</sc>.io.inputs.<pc>args[0]</pc>UseCaseInput;
+import <pk><group_id></group_id>.<artifact_id></artifact_id></pk>.use_cases.<sc>args[0]</sc>.io.outputs.<pc>args[0]</pc>UseCaseOutput;
+import com.cae.use_cases.specifics.functions.FunctionUseCase;
+
+public abstract class <pc>args[0]</pc>UseCase extends FunctionUseCase<<pc>args[0]</pc>UseCaseInput, <pc>args[0]</pc>UseCaseOutput> {
+}

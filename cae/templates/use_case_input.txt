@@ -1,0 +1,13 @@
+package <pk><group_id></group_id>.<artifact_id></artifact_id></pk>.use_cases.<sc>args[0]</sc>.io.inputs;
+
+import com.cae.use_cases.io.UseCaseInput;
+import lombok.*;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class <pc>args[0]</pc>UseCaseInput extends UseCaseInput {
+    //Define the attributes for the input of the <pc>args[0]</pc>UseCase here.
+}

@@ -1,0 +1,24 @@
+package <pk><group_id></group_id>.<artifact_id></artifact_id></pk>.use_cases.<sc>args[0]</sc>.factories;
+
+import <pk><group_id></group_id>.<artifact_id></artifact_id></pk>.use_cases.<sc>args[0]</sc>.<pc>args[0]</pc>UseCase;
+import <pk><group_id></group_id>.<artifact_id></artifact_id></pk>.use_cases.<sc>args[0]</sc>.factories.dependency_wrapper.<pc>args[0]</pc>UseCaseDependencyWrapper;
+import <pk><group_id></group_id>.<artifact_id></artifact_id></pk>.use_cases.<sc>args[0]</sc>.implementations.<pc>args[0]</pc>UseCaseImplementation;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
+import java.util.Optional;
+
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public class <pc>args[0]</pc>UseCaseFactory {
+
+    private static <pc>args[0]</pc>UseCase singleton = null;
+
+    public static <pc>args[0]</pc>UseCase createSingletonInstanceUsing(<pc>args[0]</pc>UseCaseDependencyWrapper dependencyWrapper){
+        return Optional.ofNullable(singleton).orElseGet(() -> {
+            singleton = new <pc>args[0]</pc>UseCaseImplementation(
+ 	    );
+            return singleton;
+        });
+    }
+
+}

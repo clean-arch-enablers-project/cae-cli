@@ -1,0 +1,11 @@
+package <pk><group_id></group_id>.<artifact_id></artifact_id></pk>.use_cases.<sc>args[0]</sc>.io.outputs;
+
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+@Getter
+@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
+public class <pc>args[0]</pc>UseCaseOutput {
+    //Define the attributes for the output of the <pc>args[0]</pc>UseCase here.
+}

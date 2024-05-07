@@ -1,0 +1,21 @@
+package <pk><group_id></group_id>.<artifact_id_sem_core></artifact_id_sem_core></pk>.assemblers.use_cases.<sc>args[0]</sc>;
+
+
+import <pk><group_id></group_id>.<artifact_id></artifact_id></pk>.use_cases.<sc>args[0]</sc>.<pc>args[0]</pc>UseCase;
+import <pk><group_id></group_id>.<artifact_id></artifact_id></pk>.use_cases.<sc>args[0]</sc>.factories.<pc>args[0]</pc>UseCaseFactory;
+import <pk><group_id></group_id>.<artifact_id></artifact_id></pk>.use_cases.<sc>args[0]</sc>.factories.dependency_wrapper.<pc>args[0]</pc>UseCaseDependencyWrapper;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public class <pc>args[0]</pc>UseCaseAssembler {
+
+    public static final <pc>args[0]</pc>UseCase ASSEMBLED_INSTANCE;
+
+    static {
+        var useCaseDependencies = <pc>args[0]</pc>UseCaseDependencyWrapper.builder()
+                .build();
+        ASSEMBLED_INSTANCE = <pc>args[0]</pc>UseCaseFactory.createSingletonInstanceUsing(useCaseDependencies);
+    }
+
+}

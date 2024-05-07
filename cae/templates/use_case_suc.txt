@@ -1,0 +1,9 @@
+package <pk><group_id></group_id>.<artifact_id></artifact_id></pk>.use_cases.<sc>args[0]</sc>;
+
+
+import <pk><group_id></group_id>.<artifact_id></artifact_id></pk>.use_cases.<sc>args[0]</sc>.io.outputs.<pc>args[0]</pc>UseCaseOutput;
+import com.cae.use_cases.specifics.suppliers.SupplierUseCase;
+
+
+public abstract class <pc>args[0]</pc>UseCase extends SupplierUseCase<<pc>args[0]</pc>UseCaseOutput> {
+}

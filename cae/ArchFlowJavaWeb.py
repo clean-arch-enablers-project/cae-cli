@@ -1,3 +1,5 @@
+import re
+
 from arch_flow import ArchFlow
 from arch_flow import Filter
 import subprocess
@@ -12,7 +14,8 @@ class ArchFlowJavaWeb(ArchFlow):
     def __init__(self):
         super().__init__()
         self.StringManipulator.tag_functions_user = {"artifact_id": self.get_artifact_id,
-                                                     "group_id": self.get_group_id}
+                                                     "group_id": self.get_group_id,
+                                                     "artifact_id_sem_core": self.artifact_id_remove_core}
 
     def create_project(self, group_id, artifact_id, version, package_name):
         maven_command = [
@@ -121,7 +124,7 @@ class ArchFlowJavaWeb(ArchFlow):
 
     def read_content_pom(self):
         poms = self.DirectoryExplorer.list_files(self.POM_FILE)
-        core_pom_path = self.filter.find_one_obj_by_key(poms, "Core")
+        core_pom_path = self.filter.find_one_obj_by_key(poms, "core")
         content = self.DirectoryExplorer.read_file(core_pom_path)
         return self.extract_content_pom(content)
 
@@ -132,6 +135,10 @@ class ArchFlowJavaWeb(ArchFlow):
     def get_group_id(self, input_string):
         group, _ = self.read_content_pom()
         return group
+
+    def artifact_id_remove_core(self, input_string):
+        artifact = re.sub(r'core', '', self.get_artifact_id(""))
+        return artifact
 
     def extract_content_pom(self, content_pom):
         try:

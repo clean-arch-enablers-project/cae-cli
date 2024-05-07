@@ -3,37 +3,62 @@
         "new_project": {
             
             "steps": [
-              {"create_folder": ["<pc> args[2] </pc>"]},
-              {"new_layer": ["args[1]", "args[2]", "core", "", "args[1].args[2].core.use_cases"]},
+              {"new_layer": ["args[1]", "args[2]", "core", "-core", "args[1].args[2].core.use_cases"]},
               {"new_layer": ["args[1]", "args[2]", "adaptadores", "-adapters", "args[1].args[2].adapters.use_cases"]},
-              {"new_layer": ["args[1]", "args[2]", "montadores", "-assemblers", "args[1].args[2].assemblers.use_cases"]},
-              {"change_folder": ["<path><pc>args[2]</pc></path>"]},
-              {"create_folder": ["<pc> args[2] provisionadores</pc>"]}
+              {"new_layer": ["args[1]", "args[2]", "montadores", "-assemblers", "args[1].args[2].assemblers.use_cases"]}
             ]
         },
+      "clear": {
+        "steps": [
+          {"clear_layer": ["core"]},
+          {"clear_layer": ["adapters"]},
+          {"clear_layer": ["assemblers"]}
+        ]
+      },
+      "install": {
+        "steps": [
+          {"install_layer": ["core"]},
+          {"install_layer": ["adapters"]},
+          {"install_layer": ["assemblers"]}
+        ]
+      },
+      "clear_layer": {
+        "steps": [
+          {"change_folder_partial_match": ["args[0]"]},
+          {"clear_all": "None"},
+          {"return_root_path": "None"}
+        ]
+      },
+      "install_layer": {
+        "steps": [
+          {"change_folder_partial_match": ["args[0]"]},
+          {"install_all_project": "None"},
+          {"return_root_path": "None"}
+        ]
+      },
         "clear_all": {
-          
+
           "steps": [
             {"clear_all": "None"}
           ]
         },
         "install_all": {
-          
+
           "steps": [
             {"install_all_project": "None"}
           ]
         },
         "c_i": {
-          
+
           "steps": [
             {"clear_all": "None"},
             {"install_all":  "None"}
           ]
         },
         "new_fuc": {
-          
+
           "steps": [
-            {"walk_to_use_case_layer": ["Core"]},
+            {"walk_to_use_case_layer": ["core"]},
             {"create_folder": ["<sc>args[1]</sc>"]},
 
             {"create_file_based_in_template":  ["<sc>args[1]</sc>/", "<pc>args[1] use case</pc>.java", "use_case.txt",
@@ -60,9 +85,9 @@
           ]
         },
         "new_cuc": {
-          
+
           "steps": [
-             {"walk_to_use_case_layer": ["Core"]},
+             {"walk_to_use_case_layer": ["core"]},
             {"create_folder": ["<sc>args[1]</sc>"]},
 
             {"create_file_based_in_template":  ["<sc>args[1]</sc>/", "<pc>args[1] use case</pc>.java", "use_case_cuc.txt",
@@ -86,7 +111,7 @@
         },
         "new_suc": {
           "steps": [
-            {"walk_to_use_case_layer": ["Core"]},
+            {"walk_to_use_case_layer": ["core"]},
             {"create_folder": ["<sc>args[1]</sc>"]},
 
             {"create_file_based_in_template":  ["<sc>args[1]</sc>/", "<pc>args[1] use case</pc>.java", "use_case_suc.txt",
@@ -108,7 +133,7 @@
         },
         "new_entity": {
           "steps": [
-            {"walk_to_entity_layer": ["Core"]},
+            {"walk_to_entity_layer": ["core"]},
             {"create_folder": ["/entities/factories"]},
             {"create_folder": ["/entities/implementations"]},
             {"create_file_based_in_template": ["/entities/","<pc>args[1]</pc>.java", "entity.txt",["args[1]"]]},
@@ -122,7 +147,7 @@
 
             {"change_folder_partial_match": ["<sc>args[1]</sc>"]},
             {"core_basic_dir": "None"},
-            {"create_folder": ["implementations/mappers"]},
+            {"create_folder": ["implementations/dependencies/mappers"]},
 
             {"create_file_based_in_template":  ["factories/", "<pc>args[1] use case factory</pc>.java",
               "use_case_factory.txt", ["args[1]"]]},
@@ -134,7 +159,7 @@
         },
         "function_assembler_layer": {
           "steps": [
-            {"walk_to_use_case_layer": ["Montadores"]},
+            {"walk_to_use_case_layer": ["assemblers"]},
             {"create_folder": ["<sc>args[1]</sc>"]},
             {"create_file_based_in_template":  ["<sc>args[1]</sc>/", "<pc>args[1] use case assembler</pc>.java", "assembler.txt", ["args[1]"]]},
             {"return_root_path": "None"}
@@ -142,7 +167,7 @@
         },
         "function_adapters_layer": {
           "steps": [
-            {"walk_to_use_case_layer": ["Adaptadores"]},
+            {"walk_to_use_case_layer": ["adapters"]},
             {"create_folder": ["<sc>args[1]</sc>"]},
             {"return_root_path": "None"}
           ]
@@ -162,9 +187,6 @@
         },
         "new_layer": {
             "steps": [
-              {"change_folder": ["<path><pc>args[1]</pc></path>"]},
-              {"create_folder": ["<pc> args[1] args[2]</pc>"]},
-              {"change_folder": ["<path><pc>args[1]</pc>/<pc>args[1] args[2]</pc></path>"]},
               {"create_project": ["args[0]", "args[1]args[3]", "1.0","args[4]"]},
               {"create_file_based_in_template":  ["args[1]args[3]/","pom.xml", "pomargs[3].txt",
                 ["args[0]", "args[1]", "args[2]", "args[3]"]]},
@@ -176,7 +198,7 @@
             {"create_folder": ["factories"]},
             {"create_folder": ["factories/dependency_wrapper"]},
             {"create_folder": ["implementations"]},
-            {"create_folder": ["implementations/ports"]},
+            {"create_folder": ["implementations/dependencies/ports"]},
             {"create_folder": ["io"]}
           ]
         },

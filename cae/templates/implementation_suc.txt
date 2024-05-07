@@ -1,0 +1,17 @@
+package <pk><group_id></group_id>.<artifact_id></artifact_id></pk>.use_cases.<sc>args[0]</sc>.implementations;
+
+import com.cae.use_cases.correlations.UseCaseExecutionCorrelation;
+import <pk><group_id></group_id>.<artifact_id></artifact_id></pk>.use_cases.<sc>args[0]</sc>.<pc>args[0]</pc>UseCase;
+import <pk><group_id></group_id>.<artifact_id></artifact_id></pk>.use_cases.<sc>args[0]</sc>.io.outputs.<pc>args[0]</pc>UseCaseOutput;
+
+
+public class <pc>args[0]</pc>UseCaseImplementation extends <pc>args[0]</pc>UseCase{
+
+    //declare here the ports and other dependencies you might need within this use case implementation
+
+    @Override
+    protected <pc>args[0]</pc>UseCaseOutput applyInternalLogic(UseCaseExecutionCorrelation correlation) {
+ 	 	//implement the logic of the use case here. to make contact with dependencies from here, create ports.
+ 	 return null;
+    }
+}
