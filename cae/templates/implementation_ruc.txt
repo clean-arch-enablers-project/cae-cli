@@ -1,0 +1,17 @@
+package <pk><group_id></group_id>.<artifact_id></artifact_id></pk>.use_cases.<sc>args[0]</sc>.implementations;
+
+import com.cae.use_cases.correlations.UseCaseExecutionCorrelation;
+import lombok.RequiredArgsConstructor;
+import <pk><group_id></group_id>.<artifact_id></artifact_id></pk>.use_cases.<sc>args[0]</sc>.<pc>args[0]</pc>UseCase;
+
+
+@RequiredArgsConstructor
+public class <pc>args[0]</pc>UseCaseImplementation extends <pc>args[0]</pc>UseCase {
+
+    //declare here the ports and other dependencies you might need within this use case implementation
+
+    @Override
+    protected void applyInternalLogic(UseCaseExecutionCorrelation useCaseExecutionCorrelation) {
+    //implement the logic of the use case here. to make contact with dependencies from here, create ports.
+    }
+}

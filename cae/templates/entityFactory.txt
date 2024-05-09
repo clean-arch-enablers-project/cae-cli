@@ -3,12 +3,16 @@ package <pk><group_id></group_id>.<artifact_id></artifact_id></pk>.entities.fact
 import <pk><group_id></group_id>.<artifact_id></artifact_id></pk>.entities.<pc>args[0]</pc>;
 import <pk><group_id></group_id>.<artifact_id></artifact_id></pk>.entities.implementations.<pc>args[0]</pc>Implementation;
 import lombok.AccessLevel;
+import com.cae.entities.EntityFactory;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class <pc>args[0]</pc>Factory {
+public class <pc>args[0]</pc>Factory implements EntityFactory<<pc>args[0]</pc>> {
 
-    public static <pc>args[0]</pc> getNewInstance(){
+    public static final <pc>args[0]</pc>Factory SINGLETON = new <pc>args[0]</pc>Factory();
+
+    @Override
+    public <pc>args[0]</pc> makeNewInstance(){
         return new <pc>args[0]</pc>Implementation();
     }
 

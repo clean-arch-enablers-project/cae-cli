@@ -2,7 +2,7 @@ from setuptools import setup
 
 
 setup(name='cae-cli',
-    version='0.1.8',
+    version='0.2.7',
     license='Apache License',
     author='Carlos Vinicius Da Silva',
     long_description="teste da aplicação ainda",

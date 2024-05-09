@@ -1,14 +1,13 @@
 {
     "functions": {
         "new_project": {
-            
             "steps": [
-              {"new_layer": ["args[1]", "args[2]", "core", "-core", "args[1].args[2].core.use_cases"]},
-              {"new_layer": ["args[1]", "args[2]", "adaptadores", "-adapters", "args[1].args[2].adapters.use_cases"]},
-              {"new_layer": ["args[1]", "args[2]", "montadores", "-assemblers", "args[1].args[2].assemblers.use_cases"]}
+              {"new_layer": ["args[1]", "args[2]", "core", "-core", "<pk>args[1].args[2].core</pk>.use_cases"]},
+              {"new_layer": ["args[1]", "args[2]", "adaptadores", "-adapters", "<pk>args[1].args[2].adapters</pk>.use_cases"]},
+              {"new_layer": ["args[1]", "args[2]", "montadores", "-assemblers", "<pk>args[1].args[2].assemblers</pk>.use_cases"]}
             ]
         },
-      "clear": {
+      "clean": {
         "steps": [
           {"clear_layer": ["core"]},
           {"clear_layer": ["adapters"]},
@@ -109,6 +108,24 @@
             {"function_assembler_layer": ["", "args[1]"]}
           ]
         },
+      "new_ruc": {
+        "steps": [
+          {"walk_to_use_case_layer": ["core"]},
+          {"create_folder": ["<sc>args[1]</sc>"]},
+
+          {"create_file_based_in_template":  ["<sc>args[1]</sc>/", "<pc>args[1] use case</pc>.java", "use_case_ruc.txt",
+              ["args[1]"]]},
+          {"create_folder": ["<sc>args[1]</sc>/implementations"]},
+          {"create_folder": ["<sc>args[1]</sc>/implementations/ports"]},
+          {"create_file_based_in_template":  ["<sc>args[1]</sc>/implementations/",
+              "<pc>args[1] use case implementation</pc>.java",
+              "implementation_ruc.txt", ["args[1]"]]},
+          {"return_root_path": "None"},
+
+          {"function_adapters_layer": ["", "args[1]"]},
+          {"function_assembler_layer": ["", "args[1]"]}
+        ]
+      },
         "new_suc": {
           "steps": [
             {"walk_to_use_case_layer": ["core"]},
@@ -134,6 +151,7 @@
         "new_entity": {
           "steps": [
             {"walk_to_entity_layer": ["core"]},
+            {"create_folder": ["entities"]},
             {"create_folder": ["/entities/factories"]},
             {"create_folder": ["/entities/implementations"]},
             {"create_file_based_in_template": ["/entities/","<pc>args[1]</pc>.java", "entity.txt",["args[1]"]]},
@@ -147,14 +165,8 @@
 
             {"change_folder_partial_match": ["<sc>args[1]</sc>"]},
             {"core_basic_dir": "None"},
-            {"create_folder": ["implementations/dependencies/mappers"]},
+            {"create_folder": ["implementations/mappers"]}
 
-            {"create_file_based_in_template":  ["factories/", "<pc>args[1] use case factory</pc>.java",
-              "use_case_factory.txt", ["args[1]"]]},
-
-            {"create_file_based_in_template":  ["factories/dependency_wrapper/",
-              "<pc>args[1] use case dependency wrapper</pc>.java",
-              "dependency_wrapper.txt", ["args[1]"]]}
           ]
         },
         "function_assembler_layer": {
@@ -188,17 +200,15 @@
         "new_layer": {
             "steps": [
               {"create_project": ["args[0]", "args[1]args[3]", "1.0","args[4]"]},
-              {"create_file_based_in_template":  ["args[1]args[3]/","pom.xml", "pomargs[3].txt",
+              {"create_file_based_in_template":  ["<kc>args[1]args[3]</kc>/","pom.xml", "pomargs[3].txt",
                 ["args[0]", "args[1]", "args[2]", "args[3]"]]},
               {"return_root_path": "None"}
             ]
         },
         "core_basic_dir": {
           "steps": [
-            {"create_folder": ["factories"]},
-            {"create_folder": ["factories/dependency_wrapper"]},
             {"create_folder": ["implementations"]},
-            {"create_folder": ["implementations/dependencies/ports"]},
+            {"create_folder": ["implementations/ports"]},
             {"create_folder": ["io"]}
           ]
         },

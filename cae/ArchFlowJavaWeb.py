@@ -18,6 +18,8 @@ class ArchFlowJavaWeb(ArchFlow):
                                                      "artifact_id_sem_core": self.artifact_id_remove_core}
 
     def create_project(self, group_id, artifact_id, version, package_name):
+        group_id = self.StringManipulator.to_packeage_case(group_id)
+        artifact_id = self.StringManipulator.to_kebab_case(artifact_id)
         maven_command = [
             "mvn",
             "archetype:generate",  # Corrected the typo here

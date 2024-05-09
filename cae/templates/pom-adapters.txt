@@ -3,11 +3,11 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>args[0]</groupId>
-    <artifactId>args[1]args[3]</artifactId>
+    <groupId><pk>args[0]</pk></groupId>
+    <artifactId><kc>args[1]args[3]</kc></artifactId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>args[1]args[3]</name>
+    <name><kc>args[1]args[3]</kc></name>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -35,8 +35,8 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>args[0]</groupId>
-            <artifactId>args[1]-core</artifactId>
+            <groupId><pk>args[0]</pk></groupId>
+            <artifactId><kc>args[1]-core</kc></artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>

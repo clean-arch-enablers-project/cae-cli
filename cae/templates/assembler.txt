@@ -1,21 +1,28 @@
 package <pk><group_id></group_id>.<artifact_id_sem_core></artifact_id_sem_core></pk>.assemblers.use_cases.<sc>args[0]</sc>;
 
-
+import com.cae.use_cases.assemblers.UseCaseAssembler;
 import <pk><group_id></group_id>.<artifact_id></artifact_id></pk>.use_cases.<sc>args[0]</sc>.<pc>args[0]</pc>UseCase;
-import <pk><group_id></group_id>.<artifact_id></artifact_id></pk>.use_cases.<sc>args[0]</sc>.factories.<pc>args[0]</pc>UseCaseFactory;
-import <pk><group_id></group_id>.<artifact_id></artifact_id></pk>.use_cases.<sc>args[0]</sc>.factories.dependency_wrapper.<pc>args[0]</pc>UseCaseDependencyWrapper;
+import <pk><group_id></group_id>.<artifact_id></artifact_id></pk>.use_cases.<sc>args[0]</sc>.implementations.<pc>args[0]</pc>UseCaseImplementation;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class <pc>args[0]</pc>UseCaseAssembler {
+public class <pc>args[0]</pc>UseCaseAssembler implements UseCaseAssembler<<pc>args[0]</pc>UseCase>{
 
-    public static final <pc>args[0]</pc>UseCase ASSEMBLED_INSTANCE;
+    public static final <pc>args[0]</pc>UseCaseAssembler SINGLETON_ASSEMBLER = new <pc>args[0]</pc>UseCaseAssembler();
+
+    public static final <pc>args[0]</pc>UseCase V1;
 
     static {
-        var useCaseDependencies = <pc>args[0]</pc>UseCaseDependencyWrapper.builder()
-                .build();
-        ASSEMBLED_INSTANCE = <pc>args[0]</pc>UseCaseFactory.createSingletonInstanceUsing(useCaseDependencies);
+        V1 = <pc>args[0]</pc>UseCaseAssembler.initializeV1();
     }
 
+    private static <pc>args[0]</pc>UseCase initializeV1(){
+        return new <pc>args[0]</pc>UseCaseImplementation();
+    }
+
+    @Override
+    public <pc>args[0]</pc>UseCase getDefaultAssembledInstance(){
+        return V1;
+    }
 }

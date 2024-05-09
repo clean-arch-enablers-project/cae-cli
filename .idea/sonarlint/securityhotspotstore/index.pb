@@ -43,3 +43,21 @@ O
 cae/templates/entityFactory.txt,b\d\bd27af010049db2218da939bed4361a16ee6ae6e
 V
 &cae/templates/entityImplementation.txt,7\a\7a7f594525508c9d9864ccca0cbf8910fadc7981
+P
+ cae/templates/use_case_input.txt,8\c\8c97212f34ebe25fdd779ba10ac9ea4507f9e332
+Q
+!cae/templates/use_case_output.txt,2\e\2ee4f9c7d22550b72db03da8c4bc3529c12c9213
+Y
+)cae/templates/use_case_implementation.txt,5\c\5c8d96776597bdeb4e2ca9c91b92b257bb807885
+N
+cae/templates/use_case_cuc.txt,5\e\5ec8e14adb70ae69b6ffdb64677e2268c9bb7f0f
+K
+cae/templates/assembler.txt,a\e\ae5e1f6a0623f2feb470d4327693658fcea4458f
+N
+cae/templates/use_case_ruc.txt,4\c\4c7ed079fbf5b0758a5f88dde935a725c5840f87
+T
+$cae/templates/implementation_ruc.txt,b\7\b762c4475fd93c6de27661b25834f2cd9e625171
+R
+"cae/templates/use_case_factory.txt,d\a\dae9b3b287f2f060e7a673e9ce4f28442d753794
+N
+cae/templates/use_case_suc.txt,9\5\955e596cb361a0e0e0b48a747049a76d930aeae2
