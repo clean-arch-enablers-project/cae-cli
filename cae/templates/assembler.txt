@@ -11,15 +11,7 @@ public class <pc>args[0]</pc>UseCaseAssembler implements UseCaseAssembler<<pc>ar
 
     public static final <pc>args[0]</pc>UseCaseAssembler SINGLETON_ASSEMBLER = new <pc>args[0]</pc>UseCaseAssembler();
 
-    public static final <pc>args[0]</pc>UseCase V1;
-
-    static {
-        V1 = <pc>args[0]</pc>UseCaseAssembler.initializeV1();
-    }
-
-    private static <pc>args[0]</pc>UseCase initializeV1(){
-        return new <pc>args[0]</pc>UseCaseImplementation();
-    }
+    public static final <pc>args[0]</pc>UseCase V1 = new <pc>args[0]</pc>UseCaseImplementation();
 
     @Override
     public <pc>args[0]</pc>UseCase getDefaultAssembledInstance(){

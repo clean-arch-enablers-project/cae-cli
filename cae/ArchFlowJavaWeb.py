@@ -17,7 +17,7 @@ class ArchFlowJavaWeb(ArchFlow):
                                                      "group_id": self.get_group_id,
                                                      "artifact_id_sem_core": self.artifact_id_remove_core}
 
-    def create_project(self, group_id, artifact_id, version, package_name):
+    def create_project(self, group_id, artifact_id, version, package_name, ssl="false"):
         group_id = self.StringManipulator.to_packeage_case(group_id)
         artifact_id = self.StringManipulator.to_kebab_case(artifact_id)
         maven_command = [
@@ -28,7 +28,8 @@ class ArchFlowJavaWeb(ArchFlow):
             "-Dversion=" + version,
             "-Dpackage=" + package_name,
             "-DarchetypeArtifactId=maven-archetype-quickstart",  # Corrected the prefix here
-            "-DinteractiveMode=false"
+            "-DinteractiveMode=false",
+            "-Dmaven.wagon.http.ssl.insecure=" + ssl
         ]
 
         try:
@@ -51,19 +52,15 @@ class ArchFlowJavaWeb(ArchFlow):
 
     def functions_flow(self):
         return {
-                "create_project": self.create_project,
-                "-v": self.version,
-                "--version": self.version,
-                "clear_all": self.clear_all_project,
-                "install_all_project": self.install_all_project,
-                "go_up": self.go_up,
-                }
-
-    def clear_all_project(self):
-        self.OutputHandler.information_message("starting cleaning of all projects")
-        files_pom = self.DirectoryExplorer.list_files(self.POM_FILE, os.getcwd())
-        for project in files_pom:
-            self.clean_project(project)
+            "create_project": self.create_project,
+            "-v": self.version,
+            "--version": self.version,
+            "clear_all": self.clear_all_project,
+            "install_all_project": self.install_all_project,
+            "clear_ignore_ssl": self.clear_all_project_ignore_ssl,
+            "install_all_project_ignore_ssl": self.install_all_project_ignore_ssl,
+            "go_up": self.go_up,
+        }
 
     def go_up(self):
         try:
@@ -73,6 +70,12 @@ class ArchFlowJavaWeb(ArchFlow):
             self.OutputHandler.alert_message("Parent directory not found.")
         except PermissionError:
             self.OutputHandler.alert_message("Permission denied to change directory.")
+
+    def clear_all_project(self):
+        self.OutputHandler.information_message("starting cleaning of all projects")
+        files_pom = self.DirectoryExplorer.list_files(self.POM_FILE, os.getcwd())
+        for project in files_pom:
+            self.clean_project(project)
 
     def install_all_project(self):
         self.OutputHandler.information_message("starting installing of all projects")
@@ -92,6 +95,34 @@ class ArchFlowJavaWeb(ArchFlow):
         comando_maven = f"mvn install -f {root_project_pom}"
         try:
             subprocess.run(comando_maven, shell=True, check=True)
+            self.OutputHandler.success_message("Project installing successfully.")
+        except subprocess.CalledProcessError as e:
+            self.OutputHandler.alert_message(f"error when installing a project {e}")
+
+    def clear_all_project_ignore_ssl(self):
+        self.OutputHandler.information_message("starting cleaning of all projects")
+        files_pom = self.DirectoryExplorer.list_files(self.POM_FILE, os.getcwd())
+        for project in files_pom:
+            self.clean_project_ignore_ssl(project)
+
+    def install_all_project_ignore_ssl(self):
+        self.OutputHandler.information_message("starting installing of all projects")
+        files_pom = self.DirectoryExplorer.list_files(self.POM_FILE, os.getcwd())
+        for project in files_pom:
+            self.install_project_ignore_ssl(project)
+
+    def clean_project_ignore_ssl(self, root_project_pom):
+        maven_command = f"mvn clean -f {root_project_pom} -Dmaven.wagon.http.ssl.insecure=true"
+        try:
+            subprocess.run(maven_command, shell=True, check=True)
+            self.OutputHandler.success_message("Project clean successfully.")
+        except subprocess.CalledProcessError as e:
+            self.OutputHandler.alert_message(f"error when cleaning the project {e}")
+
+    def install_project_ignore_ssl(self, root_project_pom):
+        maven_command = f"mvn install -f {root_project_pom} -Dmaven.wagon.http.ssl.insecure=true"
+        try:
+            subprocess.run(maven_command, shell=True, check=True)
             self.OutputHandler.success_message("Project installing successfully.")
         except subprocess.CalledProcessError as e:
             self.OutputHandler.alert_message(f"error when installing a project {e}")

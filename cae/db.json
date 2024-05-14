@@ -7,11 +7,25 @@
               {"new_layer": ["args[1]", "args[2]", "montadores", "-assemblers", "<pk>args[1].args[2].assemblers</pk>.use_cases"]}
             ]
         },
+      "new_project_ignore_ssl": {
+            "steps": [
+              {"new_layer_ignore_ssl": ["args[1]", "args[2]", "core", "-core", "<pk>args[1].args[2].core</pk>.use_cases"]},
+              {"new_layer_ignore_ssl": ["args[1]", "args[2]", "adaptadores", "-adapters", "<pk>args[1].args[2].adapters</pk>.use_cases"]},
+              {"new_layer_ignore_ssl": ["args[1]", "args[2]", "montadores", "-assemblers", "<pk>args[1].args[2].assemblers</pk>.use_cases"]}
+            ]
+        },
       "clean": {
         "steps": [
           {"clear_layer": ["core"]},
           {"clear_layer": ["adapters"]},
           {"clear_layer": ["assemblers"]}
+        ]
+      },
+      "clean_ignore_ssl": {
+        "steps": [
+          {"clear_layer_ignore_ssl": ["core"]},
+          {"clear_layer_ignore_ssl": ["adapters"]},
+          {"clear_layer_ignore_ssl": ["assemblers"]}
         ]
       },
       "install": {
@@ -21,6 +35,13 @@
           {"install_layer": ["assemblers"]}
         ]
       },
+      "install_ignore_ssl": {
+        "steps": [
+          {"install_layer_ignore_ssl": ["core"]},
+          {"install_layer_ignore_ssl": ["adapters"]},
+          {"install_layer_ignore_ssl": ["assemblers"]}
+        ]
+      },
       "clear_layer": {
         "steps": [
           {"change_folder_partial_match": ["args[0]"]},
@@ -28,10 +49,24 @@
           {"return_root_path": "None"}
         ]
       },
+      "clear_layer_ignore_ssl": {
+        "steps": [
+          {"change_folder_partial_match": ["args[0]"]},
+          {"clear_ignore_ssl": "None"},
+          {"return_root_path": "None"}
+        ]
+      },
       "install_layer": {
         "steps": [
           {"change_folder_partial_match": ["args[0]"]},
           {"install_all_project": "None"},
+          {"return_root_path": "None"}
+        ]
+      },
+      "install_layer_ignore_ssl": {
+        "steps": [
+          {"change_folder_partial_match": ["args[0]"]},
+          {"install_all_project_ignore_ssl": "None"},
           {"return_root_path": "None"}
         ]
       },
@@ -200,6 +235,14 @@
         "new_layer": {
             "steps": [
               {"create_project": ["args[0]", "args[1]args[3]", "1.0","args[4]"]},
+              {"create_file_based_in_template":  ["<kc>args[1]args[3]</kc>/","pom.xml", "pomargs[3].txt",
+                ["args[0]", "args[1]", "args[2]", "args[3]"]]},
+              {"return_root_path": "None"}
+            ]
+        },
+      "new_layer_ignore_ssl": {
+            "steps": [
+              {"create_project": ["args[0]", "args[1]args[3]", "1.0","args[4]", "true"]},
               {"create_file_based_in_template":  ["<kc>args[1]args[3]</kc>/","pom.xml", "pomargs[3].txt",
                 ["args[0]", "args[1]", "args[2]", "args[3]"]]},
               {"return_root_path": "None"}

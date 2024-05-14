@@ -57,7 +57,5 @@ N
 cae/templates/use_case_ruc.txt,4\c\4c7ed079fbf5b0758a5f88dde935a725c5840f87
 T
 $cae/templates/implementation_ruc.txt,b\7\b762c4475fd93c6de27661b25834f2cd9e625171
-R
-"cae/templates/use_case_factory.txt,d\a\dae9b3b287f2f060e7a673e9ce4f28442d753794
 N
 cae/templates/use_case_suc.txt,9\5\955e596cb361a0e0e0b48a747049a76d930aeae2

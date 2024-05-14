@@ -48,7 +48,7 @@
         <dependency>
             <groupId>com.clean-arch-enablers</groupId>
             <artifactId>cae-framework</artifactId>
-            <version>0.7.0</version>
+            <version>0.7.2</version>
         </dependency>
     </dependencies>
 </project>
