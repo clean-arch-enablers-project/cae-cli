@@ -59,3 +59,5 @@ T
 $cae/templates/implementation_ruc.txt,b\7\b762c4475fd93c6de27661b25834f2cd9e625171
 N
 cae/templates/use_case_suc.txt,9\5\955e596cb361a0e0e0b48a747049a76d930aeae2
+E
+cae/templates/pom.txt,c\8\c808239f84b1af8ca2e84f7c6bdd68939565f8e0

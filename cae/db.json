@@ -2,14 +2,14 @@
     "functions": {
         "new_project": {
             "steps": [
-              {"new_layer": ["args[1]", "args[2]", "core", "-core", "<pk>args[1].args[2].core</pk>.use_cases"]},
+              {"new_layer": ["args[1]", "args[2]", "core", "", "<pk>args[1].args[2].core</pk>.use_cases"]},
               {"new_layer": ["args[1]", "args[2]", "adaptadores", "-adapters", "<pk>args[1].args[2].adapters</pk>.use_cases"]},
               {"new_layer": ["args[1]", "args[2]", "montadores", "-assemblers", "<pk>args[1].args[2].assemblers</pk>.use_cases"]}
             ]
         },
       "new_project_ignore_ssl": {
             "steps": [
-              {"new_layer_ignore_ssl": ["args[1]", "args[2]", "core", "-core", "<pk>args[1].args[2].core</pk>.use_cases"]},
+              {"new_layer_ignore_ssl": ["args[1]", "args[2]", "core", "", "<pk>args[1].args[2].core</pk>.use_cases"]},
               {"new_layer_ignore_ssl": ["args[1]", "args[2]", "adaptadores", "-adapters", "<pk>args[1].args[2].adapters</pk>.use_cases"]},
               {"new_layer_ignore_ssl": ["args[1]", "args[2]", "montadores", "-assemblers", "<pk>args[1].args[2].assemblers</pk>.use_cases"]}
             ]

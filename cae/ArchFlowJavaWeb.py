@@ -158,6 +158,8 @@ class ArchFlowJavaWeb(ArchFlow):
     def read_content_pom(self):
         poms = self.DirectoryExplorer.list_files(self.POM_FILE)
         core_pom_path = self.filter.find_one_obj_by_key(poms, "core")
+        if core_pom_path is None:
+            core_pom_path = poms[0]
         content = self.DirectoryExplorer.read_file(core_pom_path)
         return self.extract_content_pom(content)
 
