@@ -2,7 +2,7 @@ from setuptools import setup
 
 
 setup(name='cae-cli',
-    version='0.2.9.7',
+    version='0.2.9.8',
     license='Apache License',
     author='Carlos Vinicius Da Silva',
     long_description="teste da aplicação ainda",
@@ -15,7 +15,7 @@ setup(name='cae-cli',
           'cae': ['templates/*.txt', '*.json']
     },
     install_requires=[
-        'arch-flow>=0.1.8.5',
+        'arch-flow>=0.1.8.6',
         'colorama'
       ],
 )
