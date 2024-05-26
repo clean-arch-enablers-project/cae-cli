@@ -1,4 +1,4 @@
-package <pk><group_id></group_id>.<artifact_id></artifact_id></pk>.use_cases.<sc>args[0]</sc>.io.outputs;
+package <pk><group_id></group_id>.<artifact_id></artifact_id></pk>.core.use_cases.<sc>args[0]</sc>.io.outputs;
 
 import lombok.Builder;
 import lombok.Getter;
