@@ -1,5 +1,5 @@
 # ⏳ Coming soon: cae-cli
-Welcome to the open source CLI tool repository! The _cae-cli_ is designed to make the experience of applying the _cae-framework_ effortless. With one simple command you can generate the whole structure of a new use case in your Java project, already including its components throughout the application layers (core, adapters and assemblers).
+Welcome to the open source CAE CLI tool repository! The _cae-cli_ is designed to make the experience of applying the _cae-framework_ effortless. With one simple command you can generate the whole structure of a new use case in your Java project, already including its components throughout the application layers (core, adapters and assemblers).
 <br><br><br>
 Watch the video and find out what you shall expect:
 
