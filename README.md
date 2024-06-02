@@ -10,5 +10,5 @@ What you shall expect:
 <br><br><br>
 - Then creating new use cases throughout the application. Watch our quick simple demo:
 
-[![image](https://github.com/clean-arch-enablers-project/cae-cli/assets/60593328/28a87fbb-ab1c-4c99-9950-9c5a7340fcbe)](https://www.youtube.com/watch?v=GCtWKd08ggY)
+[![image](https://github.com/clean-arch-enablers-project/cae-cli/assets/60593328/28a87fbb-ab1c-4c99-9950-9c5a7340fcbe)](https://www.youtube.com/watch?v=pNUhqalZOLw)
 
