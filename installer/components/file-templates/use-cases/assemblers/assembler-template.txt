@@ -1,0 +1,26 @@
+package {{GroupId:SNAKE}}.{{ArtifactId:SNAKE}}.assemblers.use_cases.{{UseCaseName:SNAKE}};
+
+import {{GroupId:SNAKE}}.{{ArtifactId:SNAKE}}.core.use_cases.{{UseCaseName:SNAKE}}.{{UseCaseName:PASCAL}}UseCase;
+import {{GroupId:SNAKE}}.{{ArtifactId:SNAKE}}.core.use_cases.{{UseCaseName:SNAKE}}.implementations.{{UseCaseName:PASCAL}}UseCaseImplementation;
+import com.cae.use_cases.assemblers.UseCaseAssembler;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
+/**
+ * This class creates a singleton object for the {{UseCaseName:PASCAL}}UseCase class.
+ * You can use this class to access the instance of this use case anywhere.
+ */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public class {{UseCaseName:PASCAL}}UseCaseAssembler implements UseCaseAssembler<{{UseCaseName:PASCAL}}UseCase>{
+
+    public static final {{UseCaseName:PASCAL}}UseCaseAssembler SINGLETON_ASSEMBLER = new {{UseCaseName:PASCAL}}UseCaseAssembler();
+
+    // You might want to preserve the V1 and as new versions of your implementation gets created, increment here with new versions (V1, V2, V3...)
+    public static final {{UseCaseName:PASCAL}}UseCase V1 = new {{UseCaseName:PASCAL}}UseCaseImplementation();
+
+    // You can select the main version of your use case implementation here. This way anywhere calling this method will automatically be upgraded with the new default version.
+    @Override
+    public {{UseCaseName:PASCAL}}UseCase getDefaultAssembledInstance(){
+        return V1;
+    }
+}

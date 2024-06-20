@@ -1,0 +1,19 @@
+{
+    "organization": "{{groupId:KEBAB}}",
+    "domain": "{{artifactId:KEBAB}}",
+    "monolayer": false,
+    "useCasePaths": [
+        {
+            "layer": "core",
+            "location": "core/src/main/java/{{groupIdToPackageFormat:DEFAULT}}/{{artifactId:SNAKE}}/use_cases"
+        },
+        {
+            "layer": "adapters",
+            "location": "adapters/src/main/java/{{groupIdToPackageFormat:DEFAULT}}/{{artifactId:SNAKE}}/use_cases"
+        },
+        {
+            "layer": "assemblers",
+            "location": "assemblers/src/main/java/{{groupIdToPackageFormat:DEFAULT}}/{{artifactId:SNAKE}}/use_cases"
+        }
+    ]
+}
