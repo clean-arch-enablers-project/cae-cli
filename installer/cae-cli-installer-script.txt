@@ -1,0 +1,21 @@
+@echo off
+
+if exist %USERPROFILE%\cae (
+	echo Found the cae directory. Using it.
+) else (
+	echo Not found cae directory. Creating it.
+	mkdir %USERPROFILE%\cae
+)
+echo @echo off > %USERPROFILE%\cae\cae.bat
+echo java -jar %USERPROFILE%\cae\cae-cli.jar %%* >> %USERPROFILE%\cae\cae.bat
+
+
+setx CAE_CLI_HOME "%USERPROFILE%\cae"
+setx CAE_META_STRUCTURE_TEMPLATES_PATH "%USERPROFILE%\cae\file-templates"
+
+
+echo alias cae='cmd //c cae' >> %USERPROFILE%\.bashrc
+echo export CAE_META_STRUCTURE_TEMPLATES_PATH="${CAE_META_STRUCTURE_TEMPLATES_PATH}" >> %USERPROFILE%\.bashrc
+
+copy .\components\cae-cli.jar %USERPROFILE%\cae
+xcopy .\components\file-templates %USERPROFILE%\cae\file-templates /E /I /H /Y
