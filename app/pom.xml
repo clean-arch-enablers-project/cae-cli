@@ -18,7 +18,7 @@
         <dependency>
             <groupId>com.clean-arch-enablers</groupId>
             <artifactId>command-controller</artifactId>
-            <version>0.0.2</version>
+            <version>0.0.3</version>
         </dependency>
         <dependency>
             <groupId>com.clean-arch-enablers</groupId>
