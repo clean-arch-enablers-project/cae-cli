@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<project>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>{{groupId:KEBAB}}</groupId>
+    <artifactId>{{artifactId:KEBAB}}-adapters</artifactId>
+    <packaging>jar</packaging>
+    <version>0.0.0</version>
+    <name>{{artifactId:KEBAB}}-adapters</name>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>{{groupId:KEBAB}}</groupId>
+            <artifactId>{{artifactId:KEBAB}}-core</artifactId>
+            <version>0.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.clean-arch-enablers</groupId>
+            <artifactId>env-vars</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.clean-arch-enablers</groupId>
+            <artifactId>http-client</artifactId>
+            <version>0.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.4.12</version>
+        </dependency>
+    </dependencies>
+
+</project>

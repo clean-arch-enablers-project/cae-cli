@@ -1,0 +1,34 @@
+package {{groupId:SNAKE}}.{{artifactId:SNAKE}}.assemblers.loggers
+
+import com.cae.loggers.IOLoggingMode
+import com.cae.loggers.Logger
+import com.cae.loggers.LoggerProvider
+import {{groupId:SNAKE}}.{{artifactId:SNAKE}}.adapters.loggers.LoggerAdapter
+
+class LoggerBootstrap {
+
+    companion object{
+
+        fun startupSettings() {
+            LoggerProvider.SINGLETON
+                .setProvidedInstance(LoggerAdapter.SINGLETON)
+                .async(false)
+                .setIOLoggingMode(IOLoggingMode.CAE_NATIVE)
+                .structuredFormat(true)
+                .setUseCasesLoggingIO(true)
+                .setPortsLoggingIO(true)
+        }
+
+        fun startupSettings(logger: Logger?) {
+            LoggerProvider.SINGLETON
+                .setProvidedInstance(logger)
+                .async(false)
+                .setIOLoggingMode(IOLoggingMode.CAE_NATIVE)
+                .structuredFormat(true)
+                .setUseCasesLoggingIO(true)
+                .setPortsLoggingIO(true)
+        }
+
+    }
+
+}

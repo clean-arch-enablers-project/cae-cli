@@ -1,9 +1,0 @@
-package {{GroupId:SNAKE}}.{{ArtifactId:SNAKE}}.core.use_cases.{{UseCaseName:SNAKE}};
-
-import com.cae.use_cases.specifics.runnables.RunnableUseCase;
-
-/**
- * This is the contract of the {{UseCaseName:PASCAL}}UseCase.
- * This use case has no input nor output (RunnableUseCase).
- */
-public abstract class {{UseCaseName:PASCAL}}UseCase extends RunnableUseCase {}

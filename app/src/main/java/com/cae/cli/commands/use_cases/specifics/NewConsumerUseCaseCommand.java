@@ -11,13 +11,16 @@ public class NewConsumerUseCaseCommand extends NewUseCaseCommand {
     public NewConsumerUseCaseCommand() {
         super("new-cuc");
         this.registerParameter("name", CommandParameterDefinitions.newRequiredDefaultParameter());
+        this.registerParameter("kotlin", CommandParameterDefinitions.newOptionalFlagParameter());
     }
 
     @Override
     protected void applyInternalLogic() {
         var name = this.getCommandParameters().get("name").getActualValue();
+        var kotlin = this.getCommandParameters().get("kotlin").isPresent();
         var useCaseInput = GenerateCucUseCaseInput.builder()
                 .name(name)
+                .kotlin(kotlin)
                 .build();
         var useCase = new GenerateCucUseCaseImplementation();
         useCase.execute(useCaseInput, UseCaseExecutionCorrelation.ofNew());

@@ -1,0 +1,19 @@
+{
+    "organization": "{{groupId:KEBAB}}",
+    "domain": "{{artifactId:KEBAB}}",
+    "monolayer": true,
+    "useCasePaths": [
+        {
+            "layer": "core",
+            "location": "src/main/kotlin/{{groupIdToPackageFormat:DEFAULT}}/{{artifactId:SNAKE}}/core/use_cases"
+        },
+        {
+            "layer": "adapters",
+            "location": "src/main/kotlin/{{groupIdToPackageFormat:DEFAULT}}/{{artifactId:SNAKE}}/adapters/use_cases"
+        },
+        {
+            "layer": "assemblers",
+            "location": "src/main/kotlin/{{groupIdToPackageFormat:DEFAULT}}/{{artifactId:SNAKE}}/assemblers/use_cases"
+        }
+    ]
+}

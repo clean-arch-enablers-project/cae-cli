@@ -42,7 +42,8 @@ if exist %USERPROFILE%\cae (
 echo @echo off > %USERPROFILE%\cae\cae.bat
 echo java -jar %USERPROFILE%\cae\cae-cli.jar %%* >> %USERPROFILE%\cae\cae.bat
 
-setx cae "%USERPROFILE%\cae"
+
+setx CAE_CLI_HOME "%USERPROFILE%\cae"
 setx CAE_META_STRUCTURE_TEMPLATES_PATH "%USERPROFILE%\cae\file-templates"
 
 

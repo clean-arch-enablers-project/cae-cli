@@ -11,13 +11,16 @@ public class NewRunnableUseCaseCommand extends NewUseCaseCommand {
     public NewRunnableUseCaseCommand() {
         super("new-ruc");
         this.registerParameter("name", CommandParameterDefinitions.newRequiredDefaultParameter());
+        this.registerParameter("kotlin", CommandParameterDefinitions.newOptionalFlagParameter());
     }
 
     @Override
     protected void applyInternalLogic() {
         var name = this.getCommandParameters().get("name").getActualValue();
+        var kotlin = this.getCommandParameters().get("kotlin").isPresent();
         var useCaseInput = GenerateRucUseCaseInput.builder()
                 .name(name)
+                .kotlin(kotlin)
                 .build();
         var useCase = new GenerateRucUseCaseImplementation();
         useCase.execute(useCaseInput, UseCaseExecutionCorrelation.ofNew());

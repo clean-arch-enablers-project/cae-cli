@@ -1,0 +1,14 @@
+package {{GroupId:SNAKE}}.{{ArtifactId:SNAKE}}.core.use_cases.{{UseCaseName:SNAKE}}.io.inputs;
+
+import com.cae.use_cases.io.UseCaseInput;
+import lombok.Getter;
+import lombok.Setter;
+
+/**
+ * This class maps the input fields for your use case. Before executing the use case,
+ * the internal method UseCaseInput::validateProperties will be called to ensure each
+ * field complies with its requirements.
+ */
+@Getter
+@Setter
+public class {{UseCaseName:PASCAL}}UseCaseInput extends UseCaseInput {}

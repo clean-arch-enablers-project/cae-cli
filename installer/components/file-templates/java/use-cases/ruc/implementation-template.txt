@@ -1,0 +1,19 @@
+package {{GroupId:SNAKE}}.{{ArtifactId:SNAKE}}.core.use_cases.{{UseCaseName:SNAKE}}.implementations;
+
+import {{GroupId:SNAKE}}.{{ArtifactId:SNAKE}}.core.use_cases.{{UseCaseName:SNAKE}}.{{UseCaseName:PASCAL}}UseCase;
+import com.cae.use_cases.correlations.UseCaseExecutionCorrelation;
+
+/**
+ * This class implements the{{UseCaseName:PASCAL}}UseCase, containing all the internal logic for its operation.
+ * Since it is a RunnableUseCase, its purpose is to execute something, not needing any input nor providing any output.
+ * <p>
+ * Important: Avoid hardcoding any sensitive information in this code. The auto-documentation
+ * process will analyze this section of the source code if the GPT mode is enabled.
+ */
+public class {{UseCaseName:PASCAL}}UseCaseImplementation extends {{UseCaseName:PASCAL}}UseCase {
+
+    @Override
+    protected void applyInternalLogic(UseCaseExecutionCorrelation correlation) {
+        //the workflow of the {{UseCaseName:PASCAL}}UseCase is supposed to be implemented here. Let's go!
+    }
+}

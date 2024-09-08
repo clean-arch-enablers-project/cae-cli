@@ -1,0 +1,20 @@
+package {{GroupId:SNAKE}}.{{ArtifactId:SNAKE}}.core.use_cases.{{UseCaseName:SNAKE}}.implementations
+
+import {{GroupId:SNAKE}}.{{ArtifactId:SNAKE}}.core.use_cases.{{UseCaseName:SNAKE}}.{{UseCaseName:PASCAL}}UseCase
+import {{GroupId:SNAKE}}.{{ArtifactId:SNAKE}}.core.use_cases.{{UseCaseName:SNAKE}}.io.outputs.{{UseCaseName:PASCAL}}UseCaseOutput
+import com.cae.use_cases.correlations.UseCaseExecutionCorrelation
+
+/**
+ * This class implements the {{UseCaseName:PASCAL}}UseCase, containing all the internal logic for its operation.
+ * Since it is a SupplierUseCase, its purpose is to supply something, not needing any input.
+ * <p>
+ * Important: Avoid hardcoding any sensitive information in this code. The auto-documentation
+ * process will analyze this section of the source code if the GPT mode is enabled.
+ */
+class {{UseCaseName:PASCAL}}UseCaseImplementation: {{UseCaseName:PASCAL}}UseCase() {
+
+    override fun applyInternalLogic(correlation: UseCaseExecutionCorrelation):  {{UseCaseName:PASCAL}}UseCaseOutput?{
+        //the workflow of the {{UseCaseName:PASCAL}}UseCase is supposed to be implemented here. Let's go!
+        return null
+    }
+}
