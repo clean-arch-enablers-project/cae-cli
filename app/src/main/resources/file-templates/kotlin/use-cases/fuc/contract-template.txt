@@ -1,0 +1,14 @@
+package {{GroupId:SNAKE}}.{{ArtifactId:SNAKE}}.core.use_cases.{{UseCaseName:SNAKE}}
+
+import {{GroupId:SNAKE}}.{{ArtifactId:SNAKE}}.core.use_cases.{{UseCaseName:SNAKE}}.io.inputs.{{UseCaseName:PASCAL}}UseCaseInput
+import {{GroupId:SNAKE}}.{{ArtifactId:SNAKE}}.core.use_cases.{{UseCaseName:SNAKE}}.io.outputs.{{UseCaseName:PASCAL}}UseCaseOutput
+import com.cae.use_cases.specifics.functions.FunctionUseCase
+
+/**
+ * This is the contract of the {{UseCaseName:PASCAL}}UseCase.
+ * Its input is mapped within the {{UseCaseName:PASCAL}}UseCaseInput class.
+ * The output is mapped within the {{UseCaseName:PASCAL}}UseCaseOutput class.
+ */
+abstract class {{UseCaseName:PASCAL}}UseCase: FunctionUseCase<
+        {{UseCaseName:PASCAL}}UseCaseInput,
+        {{UseCaseName:PASCAL}}UseCaseOutput>()

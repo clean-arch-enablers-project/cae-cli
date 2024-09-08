@@ -1,0 +1,19 @@
+package {{GroupId:SNAKE}}.{{ArtifactId:SNAKE}}.assemblers.use_cases.{{UseCaseName:SNAKE}}
+
+import {{GroupId:SNAKE}}.{{ArtifactId:SNAKE}}.core.use_cases.{{UseCaseName:SNAKE}}.{{UseCaseName:PASCAL}}UseCase
+import {{GroupId:SNAKE}}.{{ArtifactId:SNAKE}}.core.use_cases.{{UseCaseName:SNAKE}}.implementations.{{UseCaseName:PASCAL}}UseCaseImplementation
+import com.cae.use_cases.assemblers.UseCaseAssembler
+
+class {{UseCaseName:PASCAL}}UseCaseAssembler: UseCaseAssembler<{{UseCaseName:PASCAL}}UseCase> {
+
+    companion object{
+        // You might want to preserve the V1 and as new versions of your implementation gets created, increment here with new versions (V1, V2, V3...)
+        val V1: {{UseCaseName:PASCAL}}UseCase = {{UseCaseName:PASCAL}}UseCaseImplementation()
+    }
+
+    override fun getDefaultAssembledInstance(): {{UseCaseName:PASCAL}}UseCase {
+         // You can select the main version of your use case implementation here. This way anywhere calling this method will automatically be upgraded with the new default version.
+        return V1
+    }
+
+}
