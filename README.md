@@ -23,7 +23,7 @@ State Symbol Key:
 
 Expected result:
 
-![image](https://github.com/user-attachments/assets/65e0410a-f283-42ae-b5e1-399abeff713b)
+![image](https://github.com/user-attachments/assets/6013f1cc-78e2-42f3-8de2-5669fa174b06)
 
 <br>
 
