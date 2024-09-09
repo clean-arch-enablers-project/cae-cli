@@ -52,11 +52,11 @@ To run any command (except for ``new-project``), you must be in the root directo
     ]
 }
 ````
-- ``organization``: your groupId
-- ``domain``: your artifactId
-- ``monolayer``: if the project is structured as a single unit or divided into smaller subprojects
-- ``caeVersion``: cae-framework version being currently used
-- ``useCasePaths``: paths the CLI will use to find use cases at the core, adapters and assemblers layers
+- ``organization``: your groupId.
+- ``domain``: your artifactId.
+- ``monolayer``: if the project is structured as a single unit or divided into smaller subprojects.
+- ``caeVersion``: cae-framework version being currently used.
+- ``useCasePaths``: paths the CLI will use to find use cases at the core, adapters and assemblers layers.
 
 <br>
 
@@ -64,8 +64,8 @@ To run any command (except for ``new-project``), you must be in the root directo
 Run this command for creating a new ``FunctionUseCase`` declaration in your CAE project.
 
 Accepted parameters:
-- **name**: the name of the use case
-- **kotlin**: whether or not it should be generated in Kotlin
+- **name**: the name of the use case.
+- **kotlin**: whether or not it should be generated in Kotlin.
 
 Expected effect:
 ```bash
@@ -95,11 +95,11 @@ Expected effect:
 <br>
 
 ### ``✅`` ``cae new-cuc``
-Run this command for creating a new ``ConsumerUseCase`` declaration in your CAE project
+Run this command for creating a new ``ConsumerUseCase`` declaration in your CAE project.
 
 Accepted parameters:
-- **name**: the name of the use case
-- **kotlin**: whether or not it should be generated in Kotlin
+- **name**: the name of the use case.
+- **kotlin**: whether or not it should be generated in Kotlin.
 
 Expected effect:
 ```bash
@@ -126,12 +126,12 @@ Expected effect:
 <br>
 
 ### ``✅`` ``cae new-suc``
-Run this command for creating a new ``SupplierUseCase`` declaration in your CAE project
+Run this command for creating a new ``SupplierUseCase`` declaration in your CAE project.
 
 
 Accepted parameters:
-- **name**: the name of the use case
-- **kotlin**: whether or not it should be generated in Kotlin
+- **name**: the name of the use case.
+- **kotlin**: whether or not it should be generated in Kotlin.
 
 Expected effect:
 ```bash
@@ -158,11 +158,11 @@ Expected effect:
 <br>
 
 ### ``✅`` ``cae new-ruc``
-Run this command for creating a new ``RunnableUseCase`` declaration in your CAE project
+Run this command for creating a new ``RunnableUseCase`` declaration in your CAE project.
 
 Accepted parameters:
-- **name**: the name of the use case
-- **kotlin**: whether or not it should be generated in Kotlin
+- **name**: the name of the use case.
+- **kotlin**: whether or not it should be generated in Kotlin.
 
 Expected effect:
 ```bash
@@ -187,12 +187,12 @@ Expected effect:
 <br>
 
 ### ``✅`` ``cae new-project``
-Run this command for creating a new ``RunnableUseCase`` declaration in your CAE project
+Run this command for creating a new CAE project.
 
 Accepted parameters:
-- **artifactId**: the name of the project
-- **groupId**: name of the organization which owns the project
-- **caeVersion**: the desired cae-framework version
+- **artifactId**: the name of the project.
+- **groupId**: name of the organization which owns the project.
+- **caeVersion**: the desired cae-framework version.
 
 Expected effect:
 
