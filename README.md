@@ -186,6 +186,24 @@ Expected effect:
 
 <br>
 
+### ``✅`` ``cae new-project``
+Run this command for creating a new ``RunnableUseCase`` declaration in your CAE project
+
+Accepted parameters:
+- **artifactId**: the name of the project
+- **groupId**: name of the organization which owns the project
+- **caeVersion**: the desired cae-framework version
+
+Expected effect:
+
+- A monolayer project with 3 main packages: core, adapters and assemblers. Multilayer project generation is suspended via CLI.
+- A ``cae-settings.json`` file created and properly set.
+- The ``pom.xml`` file created and properly set, including the script for the autodocumentation.
+- The ``LoggerBootstrap.java`` file with default settings for the automatic logging mechanism (feel free to change it).
+- The ``LoggerAdapter.java`` file which implements the ``Logger`` interface from the framework and adapts it for the `Slf4j` format (feel free to change it too).
+
+<br>
+
 ## 🌐 Other components of the SDK:
 
 - ``✔️`` [cae-framework](https://github.com/clean-arch-enablers-project/cae-framework)
