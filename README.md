@@ -204,6 +204,11 @@ Expected effect:
 
 <br>
 
+## 💡 Tutorials
+Tutorials will soon be available on the SDK's YouTube channel: [Clean Arch Enablers SDK](https://www.youtube.com/@CleanArchEnablersSDK).
+
+<br>
+
 ## 🌐 Other components of the SDK:
 
 - ``✔️`` [cae-framework](https://github.com/clean-arch-enablers-project/cae-framework)
