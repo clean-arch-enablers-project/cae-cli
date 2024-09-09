@@ -28,7 +28,7 @@ Expected result:
 <br>
 
 ## ▶️ Using it
-To run any command (except for ``new-project``), you must be in the root directory of a CAE project. A CAE project is defined as a Java or Kotlin project that contains a ``cae-config.json`` file in its root directory. The format of this file is as follows:
+To run any command (except for ``new-project``), you must be in the root directory of a CAE project. A CAE project is defined as a Java or Kotlin project that contains a ``cae-settings.json`` file in its root directory. The format of this file is as follows:
 
 ```json
 {
