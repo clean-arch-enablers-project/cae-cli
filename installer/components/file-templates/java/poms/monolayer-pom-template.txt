@@ -15,7 +15,7 @@
     </properties>
 
     <dependencies>
-        {{dependencies:DEFAULT}}
+{{dependencies:DEFAULT}}
     </dependencies>
 
     <build>
