@@ -70,25 +70,25 @@ Accepted parameters:
 Expected effect:
 ```bash
 ├── core/                                                     # Core layer package
-│   ├── use_cases/                                            # Use cases package
-│   │   ├── some_example/                                     # The new use case package
-│   │   │   ├── SomeExampleUseCase.java/kt                    # Abstract class for the primary port of the new use case
-│   │   │   ├── implementations/                              # Package for the implementation of the new use case
-│   │   │   │   └── SomeExampleUseCaseImplementation.java/kt  # Implementation class of the new use case
-│   │   │   ├── io/                                           # Package for the I/O declaration of the use case
-│   │   │   │   ├── inputs/                                   # Package for input classes
-│   │   │   │   │   └── SomeExampleUseCaseInput.java/kt       # Main input class for the new use case
-│   │   │   │   └── output/                                   # Package for output classes
-│   │   │   │       └── SomeExampleUseCaseOutput.java/kt      # Main output class for the new use case
+│   ├── use_cases/                                            # Use cases package 
+│   │   ├── some_example/                                     # The new use case package [JUST CREATED]
+│   │   │   ├── SomeExampleUseCase.java/kt                    # Abstract class for the primary port of the new use case [JUST CREATED]
+│   │   │   ├── implementations/                              # Package for the implementation of the new use case [JUST CREATED]
+│   │   │   │   └── SomeExampleUseCaseImplementation.java/kt  # Implementation class of the new use case [JUST CREATED]
+│   │   │   ├── io/                                           # Package for the I/O declaration of the use case [JUST CREATED]
+│   │   │   │   ├── inputs/                                   # Package for input classes [JUST CREATED]
+│   │   │   │   │   └── SomeExampleUseCaseInput.java/kt       # Main input class for the new use case [JUST CREATED]
+│   │   │   │   └── output/                                   # Package for output classes [JUST CREATED]
+│   │   │   │       └── SomeExampleUseCaseOutput.java/kt      # Main output class for the new use case [JUST CREATED]
 
 ├── adapters/                                                 # Adapters layer package
 │   ├── use_cases/                                            # Use cases package
-│   │   └── some_example/                                     # Package for the new use case adapters (starts empty)
+│   │   └── some_example/                                     # Package for the new use case adapters (starts empty) [JUST CREATED]
 
 ├── assemblers/                                               # Assemblers layer
 │   ├── use_cases/                                            # Use cases package
-│   │   ├── some_example/                                     # Package for assembling the new use case
-│   │   │   └── MyUseCaseAssembler.java/kt                    # Assembler class (Factory) for the use case
+│   │   ├── some_example/                                     # Package for assembling the new use case [JUST CREATED]
+│   │   │   └── MyUseCaseAssembler.java/kt                    # Assembler class (Factory) for the use case [JUST CREATED]
 
 ```
 
@@ -105,22 +105,22 @@ Expected effect:
 ```bash
 ├── core/                                                     # Core layer package
 │   ├── use_cases/                                            # Use cases package
-│   │   ├── some_example/                                     # The new use case package
-│   │   │   ├── SomeExampleUseCase.java/kt                    # Abstract class for the primary port of the new use case
-│   │   │   ├── implementations/                              # Package for the implementation of the new use case
-│   │   │   │   └── SomeExampleUseCaseImplementation.java/kt  # Implementation class of the new use case
-│   │   │   ├── io/                                           # Package for the I/O declaration of the use case
-│   │   │   │   ├── inputs/                                   # Package for input classes
-│   │   │   │   │   └── SomeExampleUseCaseInput.java/kt       # Main input class for the new use case
+│   │   ├── some_example/                                     # The new use case package [JUST CREATED]
+│   │   │   ├── SomeExampleUseCase.java/kt                    # Abstract class for the primary port of the new use case [JUST CREATED]
+│   │   │   ├── implementations/                              # Package for the implementation of the new use case [JUST CREATED]
+│   │   │   │   └── SomeExampleUseCaseImplementation.java/kt  # Implementation class of the new use case [JUST CREATED]
+│   │   │   ├── io/                                           # Package for the I/O declaration of the use case [JUST CREATED]
+│   │   │   │   ├── inputs/                                   # Package for input classes [JUST CREATED]
+│   │   │   │   │   └── SomeExampleUseCaseInput.java/kt       # Main input class for the new use case [JUST CREATED]
 
 ├── adapters/                                                 # Adapters layer package
 │   ├── use_cases/                                            # Use cases package
-│   │   └── some_example/                                     # Package for the new use case adapters (starts empty)
+│   │   └── some_example/                                     # Package for the new use case adapters (starts empty) [JUST CREATED]
 
 ├── assemblers/                                               # Assemblers layer
 │   ├── use_cases/                                            # Use cases package
-│   │   ├── some_example/                                     # Package for assembling the new use case
-│   │   │   └── MyUseCaseAssembler.java/kt                    # Assembler class (Factory) for the use case
+│   │   ├── some_example/                                     # Package for assembling the new use case [JUST CREATED]
+│   │   │   └── MyUseCaseAssembler.java/kt                    # Assembler class (Factory) for the use case [JUST CREATED]
 
 ```
 <br>
@@ -137,22 +137,22 @@ Expected effect:
 ```bash
 ├── core/                                                     # Core layer package
 │   ├── use_cases/                                            # Use cases package
-│   │   ├── some_example/                                     # The new use case package
-│   │   │   ├── SomeExampleUseCase.java/kt                    # Abstract class for the primary port of the new use case
-│   │   │   ├── implementations/                              # Package for the implementation of the new use case
-│   │   │   │   └── SomeExampleUseCaseImplementation.java/kt  # Implementation class of the new use case
-│   │   │   ├── io/                                           # Package for the I/O declaration of the use case
-│   │   │   │   ├── outputs/                                  # Package for output classes
-│   │   │   │   │   └── SomeExampleUseCaseOutput.java/kt      # Main output class for the new use case
+│   │   ├── some_example/                                     # The new use case package [JUST CREATED]
+│   │   │   ├── SomeExampleUseCase.java/kt                    # Abstract class for the primary port of the new use case [JUST CREATED]
+│   │   │   ├── implementations/                              # Package for the implementation of the new use case [JUST CREATED]
+│   │   │   │   └── SomeExampleUseCaseImplementation.java/kt  # Implementation class of the new use case [JUST CREATED]
+│   │   │   ├── io/                                           # Package for the I/O declaration of the use case [JUST CREATED]
+│   │   │   │   ├── outputs/                                  # Package for output classes [JUST CREATED]
+│   │   │   │   │   └── SomeExampleUseCaseOutput.java/kt      # Main output class for the new use case [JUST CREATED]
 
 ├── adapters/                                                 # Adapters layer package
 │   ├── use_cases/                                            # Use cases package
-│   │   └── some_example/                                     # Package for the new use case adapters (starts empty)
+│   │   └── some_example/                                     # Package for the new use case adapters (starts empty) [JUST CREATED]
 
 ├── assemblers/                                               # Assemblers layer
 │   ├── use_cases/                                            # Use cases package
-│   │   ├── some_example/                                     # Package for assembling the new use case
-│   │   │   └── MyUseCaseAssembler.java/kt                    # Assembler class (Factory) for the use case
+│   │   ├── some_example/                                     # Package for assembling the new use case [JUST CREATED]
+│   │   │   └── MyUseCaseAssembler.java/kt                    # Assembler class (Factory) for the use case [JUST CREATED]
 
 ```
 <br>
@@ -168,19 +168,19 @@ Expected effect:
 ```bash
 ├── core/                                                     # Core layer package
 │   ├── use_cases/                                            # Use cases package
-│   │   ├── some_example/                                     # The new use case package
-│   │   │   ├── SomeExampleUseCase.java/kt                    # Abstract class for the primary port of the new use case
-│   │   │   ├── implementations/                              # Package for the implementation of the new use case
-│   │   │   │   └── SomeExampleUseCaseImplementation.java/kt  # Implementation class of the new use case
+│   │   ├── some_example/                                     # The new use case package [JUST CREATED]
+│   │   │   ├── SomeExampleUseCase.java/kt                    # Abstract class for the primary port of the new use case [JUST CREATED]
+│   │   │   ├── implementations/                              # Package for the implementation of the new use case [JUST CREATED]
+│   │   │   │   └── SomeExampleUseCaseImplementation.java/kt  # Implementation class of the new use case [JUST CREATED]
 
 ├── adapters/                                                 # Adapters layer package
 │   ├── use_cases/                                            # Use cases package
-│   │   └── some_example/                                     # Package for the new use case adapters (starts empty)
+│   │   └── some_example/                                     # Package for the new use case adapters (starts empty) [JUST CREATED]
 
 ├── assemblers/                                               # Assemblers layer
 │   ├── use_cases/                                            # Use cases package
-│   │   ├── some_example/                                     # Package for assembling the new use case
-│   │   │   └── MyUseCaseAssembler.java/kt                    # Assembler class (Factory) for the use case
+│   │   ├── some_example/                                     # Package for assembling the new use case [JUST CREATED]
+│   │   │   └── MyUseCaseAssembler.java/kt                    # Assembler class (Factory) for the use case [JUST CREATED]
 
 ```
 
