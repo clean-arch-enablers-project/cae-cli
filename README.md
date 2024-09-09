@@ -201,6 +201,7 @@ Expected effect:
 - The ``pom.xml`` file created and properly set, including the script for the autodocumentation.
 - The ``LoggerBootstrap.java`` file with default settings for the automatic logging mechanism (feel free to change it).
 - The ``LoggerAdapter.java`` file which implements the ``Logger`` interface from the framework and adapts it for the `Slf4j` format (feel free to change it too).
+- The ``${artifactId}Documentation.java`` file which is invoked by the Maven Install phase due to the ``pom.xml`` settings for the autodocumentation process.
 
 <br>
 
