@@ -1,7 +1,6 @@
 package com.cae.cli.bootstrap_settings;
 
 import com.cae.cli.commands.projects.NewProjectCommand;
-import com.cae.cli.commands.projects.RotateToMonolayerCommand;
 import com.cae.cli.commands.use_cases.specifics.NewConsumerUseCaseCommand;
 import com.cae.cli.commands.use_cases.specifics.NewFunctionUseCaseCommand;
 import com.cae.cli.commands.use_cases.specifics.NewRunnableUseCaseCommand;
@@ -26,8 +25,7 @@ public class CaeCliBootstrapSettings {
                 new NewConsumerUseCaseCommand(),
                 new NewSupplierUseCaseCommand(),
                 new NewRunnableUseCaseCommand(),
-                new NewProjectCommand(),
-                new RotateToMonolayerCommand()
+                new NewProjectCommand()
         ));
     }
 

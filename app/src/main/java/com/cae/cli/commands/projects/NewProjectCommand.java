@@ -10,7 +10,6 @@ public class NewProjectCommand extends Command {
 
     public NewProjectCommand() {
         super("new-project");
-        this.registerParameter("monolayer", CommandParameterDefinitions.newOptionalFlagParameter());
         this.registerParameter("artifactId", CommandParameterDefinitions.newRequiredDefaultParameter());
         this.registerParameter("groupId", CommandParameterDefinitions.newRequiredDefaultParameter());
         this.registerParameter("caeVersion", CommandParameterDefinitions.newRequiredDefaultParameter());
@@ -18,14 +17,13 @@ public class NewProjectCommand extends Command {
 
     @Override
     protected void applyInternalLogic() {
-        var isMonolayer = this.getCommandParameters().get("monolayer").isPresent();
         var artifactId = this.getCommandParameters().get("artifactId").getActualValue();
         var groupId = this.getCommandParameters().get("groupId").getActualValue();
         var frameworkVersion = this.getCommandParameters().get("caeVersion").getActualValue();
         var useCaseInput = GenerateProjectStructureUseCaseInput.builder()
                 .artifactId(artifactId)
                 .groupId(groupId)
-                .monolayer(isMonolayer)
+                .monolayer(true)
                 .caeFrameworkVersion(frameworkVersion)
                 .build();
         var useCase = new GenerateProjectStructureUseCaseImplementation();

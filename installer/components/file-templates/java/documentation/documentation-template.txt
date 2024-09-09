@@ -1,0 +1,17 @@
+package {{groupId:SNAKE}}.{{artifactId:SNAKE}}.assemblers.documentation;
+
+import com.cae.use_cases.auto_documentation.UseCaseDocumentationExternalizer;
+
+import java.io.IOException;
+
+public class {{artifactId:PASCAL}}Documentation {
+
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        UseCaseDocumentationExternalizer.externalize(
+                "{{groupId:SNAKE}}.{{artifactId:SNAKE}}.assemblers.use_cases",
+                "{{artifactId:PASCAL}}",
+                false
+        );
+    }
+
+}

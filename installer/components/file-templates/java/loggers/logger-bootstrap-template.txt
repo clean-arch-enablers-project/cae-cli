@@ -1,4 +1,4 @@
-package {{groupId:SNAKE}}.{{artifactId:SNAKE}}.assemblers.logger
+package {{groupId:SNAKE}}.{{artifactId:SNAKE}}.assemblers.logger;
 
 import {{groupId:SNAKE}}.{{artifactId:SNAKE}}.adapters.logger.LoggerAdapter;
 import com.cae.loggers.IOLoggingMode;
