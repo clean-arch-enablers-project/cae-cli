@@ -56,7 +56,7 @@ To run any command (except for ``new-project``), you must be in the root directo
 - ``domain``: your artifactId
 - ``monolayer``: if the project is structured as a single unit or divided into smaller subprojects
 - ``caeVersion``: cae-framework version being currently used
-- ``useCasePaths``: path the CLI will use to find use cases at the core, adapters and assemblers layers
+- ``useCasePaths``: paths the CLI will use to find use cases at the core, adapters and assemblers layers
 
 <br>
 
