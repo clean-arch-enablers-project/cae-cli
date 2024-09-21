@@ -23,7 +23,7 @@ elif [ -f "$HOME/.bash_profile" ]; then
 fi
 
 cp ./components/cae-cli.jar "$HOME/cae"
-cp -r ./components/file-templates "$HOME/cae/file-templates"
+cp -r ./components/file-templates/* "$HOME/cae/file-templates"
 
 echo "Before use cae-clie, in your .zshrc/.bash_profile file, please add the following lines:"
 echo "export CAE_CLI_HOME='$HOME/cae'"
