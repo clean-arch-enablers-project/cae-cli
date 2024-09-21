@@ -12,8 +12,6 @@ echo "#!/bin/bash" > "$HOME/cae/cae.sh"
 echo "java -jar \$HOME/cae/cae-cli.jar \"\$@\"" >> "$HOME/cae/cae.sh"
 chmod +x "$HOME/cae/cae.sh"
 
-export CAE_CLI_HOME="$HOME/cae"
-
 if [ -f "$HOME/.zshrc" ]; then
   echo "alias cae='$HOME/cae/cae.sh'" >> "$HOME/.zshrc"
   source "$HOME/.zshrc"
