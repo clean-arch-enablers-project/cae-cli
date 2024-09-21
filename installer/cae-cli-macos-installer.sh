@@ -23,7 +23,7 @@ fi
 cp ./components/cae-cli.jar "$HOME/cae"
 cp -r ./components/file-templates/* "$HOME/cae/file-templates"
 
-echo "Before use cae-clie, in your .zshrc/.bash_profile file, please add the following lines:"
+echo "Before use cae-cli, in your .zshrc/.bash_profile file, please add the following lines:"
 echo "export CAE_CLI_HOME='$HOME/cae'"
 echo "export CAE_META_STRUCTURE_TEMPLATES_PATH='$HOME/cae/file-templates'"
 echo "Installation completed. Please restart your terminal with 'source ~/.zshrc' or 'source ~/.bash_profile'."
