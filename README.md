@@ -35,8 +35,8 @@ Expected result:
 3. Run the ``cae-cli-macos-installer.sh`` in sudo mode.
 4. Add theses exports on `.zshrc` or `.bash_profile` file: 
 ```bash
-export CAE_CLI_HOME='$HOME/cae' 
-export CAE_META_STRUCTURE_TEMPLATES_PATH='$HOME/cae/file-templates'
+export CAE_CLI_HOME="$HOME/cae"
+export CAE_META_STRUCTURE_TEMPLATES_PATH="$HOME/cae/file-templates"
 ```
 5. Restart terminal with `source ~/.zshrc` or `source ~/.bash_profile`
 6. To test the installation, run ``cae ls``
