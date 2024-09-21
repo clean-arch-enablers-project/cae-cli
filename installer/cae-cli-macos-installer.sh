@@ -27,4 +27,4 @@ fi
 cp ./components/cae-cli.jar "$HOME/cae"
 cp -r ./components/file-templates "$HOME/cae/file-templates"
 
-echo "Setup completo! Reinicie o terminal ou execute 'source ~/.zshrc' ou 'source ~/.bash_profile'."
+echo "Installation completed. Please restart your terminal with 'source ~/.zshrc' or 'source ~/.bash_profile'."
