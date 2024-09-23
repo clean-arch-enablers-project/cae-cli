@@ -16,10 +16,30 @@ State Symbol Key:
 <br>
 
 ## 🔧 How to install it
+
+### Windows Plataform
+
 1. Clone the project.
 2. Run the ``cae-cli-installer.exe`` file.
 3. Add ``%CAE_CLI_HOME%`` to your system's or user's Path environment variable.
 4. To test the installation, open a command prompt and run ``cae ls``.
+
+Expected result:
+
+![image](https://github.com/user-attachments/assets/6013f1cc-78e2-42f3-8de2-5669fa174b06)
+
+### MacOS Plataform
+
+1. Clone the project
+2. Authorize file `cae-cli-macos-install.sh` to run with `chmod +x cae-cli-macos-install.sh`
+3. Run the ``cae-cli-macos-installer.sh`` in sudo mode.
+4. Add theses exports on `.zshrc` or `.bash_profile` file: 
+```bash
+export CAE_CLI_HOME="$HOME/cae"
+export CAE_META_STRUCTURE_TEMPLATES_PATH="$HOME/cae/file-templates"
+```
+5. Restart terminal with `source ~/.zshrc` or `source ~/.bash_profile`
+6. To test the installation, run ``cae ls``
 
 Expected result:
 
