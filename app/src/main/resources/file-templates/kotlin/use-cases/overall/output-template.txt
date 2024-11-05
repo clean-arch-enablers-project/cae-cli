@@ -1,6 +1,0 @@
-package {{GroupId:SNAKE}}.{{ArtifactId:SNAKE}}.core.use_cases.{{UseCaseName:SNAKE}}.io.outputs;
-
-/**
- * This class maps the output fields for your use case.
- */
-class {{UseCaseName:PASCAL}}UseCaseOutput

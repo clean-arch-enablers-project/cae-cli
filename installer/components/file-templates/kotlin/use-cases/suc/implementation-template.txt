@@ -2,7 +2,7 @@ package {{GroupId:SNAKE}}.{{ArtifactId:SNAKE}}.core.use_cases.{{UseCaseName:SNAK
 
 import {{GroupId:SNAKE}}.{{ArtifactId:SNAKE}}.core.use_cases.{{UseCaseName:SNAKE}}.{{UseCaseName:PASCAL}}UseCase
 import {{GroupId:SNAKE}}.{{ArtifactId:SNAKE}}.core.use_cases.{{UseCaseName:SNAKE}}.io.outputs.{{UseCaseName:PASCAL}}UseCaseOutput
-import com.cae.use_cases.correlations.UseCaseExecutionCorrelation
+import com.cae.use_cases.contexts.ExecutionContext
 
 /**
  * This class implements the {{UseCaseName:PASCAL}}UseCase, containing all the internal logic for its operation.
@@ -13,7 +13,7 @@ import com.cae.use_cases.correlations.UseCaseExecutionCorrelation
  */
 class {{UseCaseName:PASCAL}}UseCaseImplementation: {{UseCaseName:PASCAL}}UseCase() {
 
-    override fun applyInternalLogic(correlation: UseCaseExecutionCorrelation):  {{UseCaseName:PASCAL}}UseCaseOutput?{
+    override fun applyInternalLogic(context: ExecutionContext):  {{UseCaseName:PASCAL}}UseCaseOutput?{
         //the workflow of the {{UseCaseName:PASCAL}}UseCase is supposed to be implemented here. Let's go!
         return null
     }

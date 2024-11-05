@@ -2,7 +2,7 @@ package {{GroupId:SNAKE}}.{{ArtifactId:SNAKE}}.core.use_cases.{{UseCaseName:SNAK
 
 import {{GroupId:SNAKE}}.{{ArtifactId:SNAKE}}.core.use_cases.{{UseCaseName:SNAKE}}.{{UseCaseName:PASCAL}}UseCase;
 import {{GroupId:SNAKE}}.{{ArtifactId:SNAKE}}.core.use_cases.{{UseCaseName:SNAKE}}.io.inputs.{{UseCaseName:PASCAL}}UseCaseInput;
-import com.cae.use_cases.correlations.UseCaseExecutionCorrelation;
+import com.cae.use_cases.contexts.ExecutionContext;
 
 /**
  * This class implements the {{UseCaseName:PASCAL}}UseCase, containing all the internal logic for its operation.
@@ -16,7 +16,7 @@ public class {{UseCaseName:PASCAL}}UseCaseImplementation extends {{UseCaseName:P
     @Override
     protected void applyInternalLogic(
             {{UseCaseName:PASCAL}}UseCaseInput input,
-            UseCaseExecutionCorrelation correlation) {
+            ExecutionContext context) {
         //the workflow of the {{UseCaseName:PASCAL}}UseCase is supposed to be implemented here. Let's go!
     }
 }

@@ -17,7 +17,9 @@ public class LoggerBootstrap {
                 .setIOLoggingMode(IOLoggingMode.CAE_NATIVE)
                 .structuredFormat(true)
                 .setUseCasesLoggingIO(true)
-                .setPortsLoggingIO(true);
+                .setPortsLoggingIO(true)
+                .setLoggingStackTrace(true)
+                .setNumberOfLinesFromStackTrace(5);
     }
 
     public static void startupSettings(Logger logger){
@@ -27,7 +29,9 @@ public class LoggerBootstrap {
                 .setIOLoggingMode(IOLoggingMode.CAE_NATIVE)
                 .structuredFormat(true)
                 .setUseCasesLoggingIO(true)
-                .setPortsLoggingIO(true);
+                .setPortsLoggingIO(true)
+                .setLoggingStackTrace(true)
+                .setNumberOfLinesFromStackTrace(5);
     }
 
 }

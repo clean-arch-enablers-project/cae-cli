@@ -2,7 +2,7 @@ package {{GroupId:SNAKE}}.{{ArtifactId:SNAKE}}.core.use_cases.{{UseCaseName:SNAK
 
 import {{GroupId:SNAKE}}.{{ArtifactId:SNAKE}}.core.use_cases.{{UseCaseName:SNAKE}}.io.inputs.{{UseCaseName:PASCAL}}UseCaseInput
 import {{GroupId:SNAKE}}.{{ArtifactId:SNAKE}}.core.use_cases.{{UseCaseName:SNAKE}}.io.outputs.{{UseCaseName:PASCAL}}UseCaseOutput
-import com.cae.use_cases.specifics.functions.FunctionUseCase
+import com.cae.use_cases.FunctionUseCase
 
 /**
  * This is the contract of the {{UseCaseName:PASCAL}}UseCase.

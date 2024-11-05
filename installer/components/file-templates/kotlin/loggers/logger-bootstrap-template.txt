@@ -17,6 +17,8 @@ class LoggerBootstrap {
                 .structuredFormat(true)
                 .setUseCasesLoggingIO(true)
                 .setPortsLoggingIO(true)
+                 .setLoggingStackTrace(true)
+                .setNumberOfLinesFromStackTrace(5)
         }
 
         fun startupSettings(logger: Logger?) {
@@ -27,6 +29,8 @@ class LoggerBootstrap {
                 .structuredFormat(true)
                 .setUseCasesLoggingIO(true)
                 .setPortsLoggingIO(true)
+                .setLoggingStackTrace(true)
+                .setNumberOfLinesFromStackTrace(5)
         }
 
     }

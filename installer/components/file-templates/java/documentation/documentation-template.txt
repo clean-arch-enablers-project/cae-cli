@@ -1,6 +1,6 @@
 package {{groupId:SNAKE}}.{{artifactId:SNAKE}}.assemblers.documentation;
 
-import com.cae.use_cases.auto_documentation.UseCaseDocumentationExternalizer;
+import com.cae.use_cases.autodoc.UseCaseDocumentationExternalizer;
 
 import java.io.IOException;
 

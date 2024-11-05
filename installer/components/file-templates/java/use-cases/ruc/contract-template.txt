@@ -1,6 +1,6 @@
 package {{GroupId:SNAKE}}.{{ArtifactId:SNAKE}}.core.use_cases.{{UseCaseName:SNAKE}};
 
-import com.cae.use_cases.specifics.runnables.RunnableUseCase;
+import com.cae.use_cases.RunnableUseCase;
 
 /**
  * This is the contract of the {{UseCaseName:PASCAL}}UseCase.
