@@ -37,22 +37,22 @@ public class UpdateUseCaseCommand extends NewUseCaseCommand {
             latestBranch = findLatestVersionBranch(branches);
 
             if (latestBranch == null) {
-                System.err.println("Não foi possível encontrar a última versão.");
+                System.err.println("Couldn't find the latest version.");
                 return;
             }
 
-            System.out.println("Última branch encontrada: " + latestBranch);
+            System.out.println("Latest branch found: " + latestBranch);
             downloadAndExtractBranch();
             createAndRunUpdateScript();
         } catch (Exception e) {
-            System.err.println("Erro durante o processo de atualização: " + e.getMessage());
+            System.err.println("Error during the update process: " + e.getMessage());
         }
     }
 
     private void validateEnvironment() {
         String caeHome = System.getenv("CAE_CLI_HOME");
         if (caeHome == null || caeHome.isEmpty()) {
-            throw new RuntimeException("Variável de ambiente CAE_CLI_HOME não configurada.");
+            throw new RuntimeException("Environment variable CAE_CLI_HOME not set.");
         }
     }
 
@@ -66,7 +66,7 @@ public class UpdateUseCaseCommand extends NewUseCaseCommand {
 
         try (Response response = client.newCall(request).execute()) {
             if (!response.isSuccessful()) {
-                throw new IOException("Falha ao buscar branches. Código: " + response.code());
+                throw new IOException("Failed to fetch branches. Code: " + response.code());
             }
 
             String responseBody = response.body().string();
@@ -77,7 +77,7 @@ public class UpdateUseCaseCommand extends NewUseCaseCommand {
                     .filter(branch -> branch.matches("^v\\d+\\.\\d+\\.\\d+$"))
                     .collect(Collectors.toList());
         } catch (IOException e) {
-            throw new RuntimeException("Erro ao acessar o repositório GitHub", e);
+            throw new RuntimeException("Error accessing GitHub repository", e);
         }
     }
 
@@ -118,22 +118,22 @@ public class UpdateUseCaseCommand extends NewUseCaseCommand {
 
         try (Response response = client.newCall(request).execute()) {
             if (!response.isSuccessful() || response.body() == null) {
-                throw new IOException("Download falhou. Código: " + response.code());
+                throw new IOException("Download failed. Code: " + response.code());
             }
 
             File zipFile = new File(caeHome, latestBranch + ".zip");
             zipFile.getParentFile().mkdirs();
 
             Files.copy(response.body().byteStream(), zipFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
-            System.out.println("Download concluído: " + zipFile.getAbsolutePath());
+            System.out.println("Download completed: " + zipFile.getAbsolutePath());
 
             File destDir = new File(caeHome, "source");
             destDir.mkdirs();
 
             unzipFile(zipFile, destDir);
-            System.out.println("Arquivos extraídos com sucesso!");
+            System.out.println("Files extracted successfully!");
         } catch (IOException e) {
-            throw new RuntimeException("Erro no download da branch", e);
+            throw new RuntimeException("Error downloading branch", e);
         }
     }
 
@@ -157,61 +157,58 @@ public class UpdateUseCaseCommand extends NewUseCaseCommand {
         String caeHome = System.getenv("CAE_CLI_HOME");
         String batFilePath = new File(caeHome, "update-temp.bat").getAbsolutePath();
 
-        // Caminho específico baseado na estrutura que você mencionou, removendo o prefixo "v"
+        // Specific path based on your structure, removing the "v" prefix
         String versionWithoutV = latestBranch.startsWith("v") ? latestBranch.substring(1) : latestBranch;
         String sourceDir = new File(caeHome, "source\\clean-arch-enablers-CLI-" + versionWithoutV + "\\installer\\components").getAbsolutePath();
 
         try (FileWriter writer = new FileWriter(batFilePath)) {
             writer.write("@echo off\n");
-            writer.write("echo Iniciando processo de atualização\n");
-            writer.write("echo Versão: " + latestBranch + "\n");
+            writer.write("echo Starting update process\n");
+            writer.write("echo Version: " + latestBranch + "\n");
 
-            // Encerrar processos Java
-            writer.write("echo Encerrando processos Java...\n");
+            // Terminate Java processes
+            writer.write("echo Terminating Java processes...\n");
             writer.write("taskkill /F /IM java.exe\n");
 
-            // Copiar templates
-            writer.write("echo Copiando templates...\n");
+            // Copy templates
+            writer.write("echo Copying templates...\n");
             writer.write("if exist \"" + sourceDir + "\\file-templates\" (\n");
             writer.write("    xcopy /E /I /H /Y \"" + sourceDir + "\\file-templates\" \"" + caeHome + "\\file-templates\"\n");
             writer.write("    if %errorlevel% equ 0 (\n");
-            writer.write("        echo Templates copiados com sucesso\n");
+            writer.write("        echo Templates copied successfully\n");
             writer.write("    ) else (\n");
-            writer.write("        echo Erro ao copiar templates: " + sourceDir + "\\file-templates para " + caeHome + "\\file-templates\n");
+            writer.write("        echo Error copying templates: " + sourceDir + "\\file-templates to " + caeHome + "\\file-templates\n");
             writer.write("    )\n");
             writer.write(") else (\n");
-            writer.write("    echo Diretório de templates não encontrado: " + sourceDir + "\\file-templates\n");
+            writer.write("    echo Templates directory not found: " + sourceDir + "\\file-templates\n");
             writer.write(")\n");
 
-            // Substituir JAR
-            writer.write("echo Atualizando JAR...\n");
+            // Replace JAR
+            writer.write("echo Updating JAR...\n");
             writer.write("if exist \"" + sourceDir + "\\cae-cli.jar\" (\n");
             writer.write("    move /Y \"" + sourceDir + "\\cae-cli.jar\" \"" + caeHome + "\\cae-cli.jar\"\n");
             writer.write("    if %errorlevel% equ 0 (\n");
-            writer.write("        echo JAR atualizado com sucesso\n");
+            writer.write("        echo JAR updated successfully\n");
             writer.write("    ) else (\n");
-            writer.write("        echo Erro ao atualizar JAR\n");
+            writer.write("        echo Error updating JAR\n");
             writer.write("    )\n");
             writer.write(") else (\n");
-            writer.write("    echo Arquivo JAR não encontrado\n");
+            writer.write("    echo JAR file not found\n");
             writer.write(")\n");
 
-            // Reiniciar aplicação
-            writer.write("echo Reiniciando aplicação...\n");
-            writer.write("java -jar \"" + caeHome + "\\cae-cli.jar\"\n");
 
-            // Manter janela aberta para visualização
-            writer.write("echo Atualização concluída\n");
-            writer.write("echo Pressione qualquer tecla para fechar...\n");
+            // Keep the window open for viewing
+            writer.write("echo Update complete\n");
+            writer.write("echo Press any key to close...\n");
             writer.write("pause >nul\n");
         } catch (IOException e) {
-            throw new RuntimeException("Erro ao criar script de atualização", e);
+            throw new RuntimeException("Error creating update script", e);
         }
 
         try {
             Runtime.getRuntime().exec(new String[]{"cmd.exe", "/c", "start", batFilePath});
         } catch (IOException e) {
-            throw new RuntimeException("Erro ao executar script de atualização", e);
+            throw new RuntimeException("Error running update script", e);
         }
     }
 
