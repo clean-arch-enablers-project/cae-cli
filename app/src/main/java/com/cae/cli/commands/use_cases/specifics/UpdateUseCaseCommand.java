@@ -1,6 +1,7 @@
 package com.cae.cli.commands.use_cases.specifics;
 
 import com.cae.cli.commands.use_cases.NewUseCaseCommand;
+import com.cae.command_controller.CommandParameterDefinitions;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -19,8 +20,9 @@ import java.util.zip.ZipInputStream;
 
 public class UpdateUseCaseCommand extends NewUseCaseCommand {
 
-    protected UpdateUseCaseCommand() {
+    public UpdateUseCaseCommand() {
         super("update");
+        this.registerParameter("name", CommandParameterDefinitions.newOptionalFlagParameter());
     }
 
     private static final String GITHUB_OWNER = "ViniciusInTech";
