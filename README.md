@@ -49,18 +49,37 @@ Expected result:
 
 ### Linux Platform
 
-1. Clone the project
-2. Authorize file `cae-cli-linux-installer.sh` to run with `chmod +x cae-cli-linux-installer.sh`
-3. Run the ``cae-cli-linux-installer.sh`` in sudo mode (to avoid mistakes)
-4. Add theses exports on `~/.bashrc` or `~/.profile` file:
-```bash
-export CAE_CLI_HOME="$HOME/cae"
-export CAE_META_STRUCTURE_TEMPLATES_PATH="$HOME/cae/file-templates"
-```
-5. Restart terminal with `source ~/.bashrc` or `source ~/.profile`
-6. To test the installation, run ``cae ls``
+1. Clone the project.
+2. Authorize the `cae-cli-linux-installer.sh` file to run:
+   ```bash
+   chmod +x cae-cli-linux-installer.sh
+   ```
+3. Execute the installer:
+   ```bash
+   ./cae-cli-linux-installer.sh
+   ```
+4. Restart your terminal:
+   ```bash
+   source ~/.bashrc
+   ```
+5. Test the installation:
+   ```bash
+   cae ls
+   ```
 
-Expected result:
+### ✅ What the installer does automatically:
+- Creates the folder structure `~/cae/bin` and `~/cae/file-templates`.
+- Copies the `cae-cli.jar` and templates to the correct directories.
+- Creates a CLI shortcut script inside `~/cae/bin`.
+- Automatically adds the following lines to your `~/.bashrc`:
+  ```bash
+  export CAE_CLI_HOME="$HOME/cae"
+  export CAE_META_STRUCTURE_TEMPLATES_PATH="$HOME/cae/file-templates"
+  export PATH="$CAE_CLI_HOME/bin:$PATH"
+  ```
+
+
+#### Expected result:
 
 ![image](https://github.com/user-attachments/assets/6013f1cc-78e2-42f3-8de2-5669fa174b06)
 
