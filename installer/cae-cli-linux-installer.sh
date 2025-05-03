@@ -1,29 +1,46 @@
 #!/bin/bash
 
-if [ -d "$HOME/cae" ]; then
-  echo "Found the cae directory. Using it."
+INSTALL_DIR="$HOME/cae"
+BIN_DIR="$INSTALL_DIR/bin"
+JAR_SOURCE="./components/cae-cli.jar"
+TEMPLATES_SOURCE="./components/file-templates"
+
+echo "📦 Installing CAE CLI..."
+
+if [ -d "$INSTALL_DIR" ]; then
+  echo "✔ Directory $INSTALL_DIR already exists."
 else
-  echo "Not found cae directory. Creating it."
-  mkdir -p "$HOME/cae"
-  mkdir -p "$HOME/cae/file-templates"
+  echo "📁 Creating directory $INSTALL_DIR..."
+  mkdir -p "$BIN_DIR"
+  mkdir -p "$INSTALL_DIR/file-templates"
 fi
 
-echo "#!/bin/bash" > "$HOME/cae/cae.sh"
-echo "java -jar \$HOME/cae/cae-cli.jar \"\$@\"" >> "$HOME/cae/cae.sh"
-chmod +x "$HOME/cae/cae.sh"
+cp "$JAR_SOURCE" "$INSTALL_DIR/cae-cli.jar"
 
-if [ -f "$HOME/.bashrc" ]; then
-  echo "alias cae='$HOME/cae/cae.sh'" >> "$HOME/.bashrc"
-  source "$HOME/.bashrc"
-elif [ -f "$HOME/.profile" ]; then
-  echo "alias cae='$HOME/cae/cae.sh'" >> "$HOME/.profile"
-  source "$HOME/.profile"
+cp -r "$TEMPLATES_SOURCE"/* "$INSTALL_DIR/file-templates"
+
+echo "🛠️  Creating CLI script at $BIN_DIR/cae..."
+mkdir -p "$BIN_DIR"
+cat <<EOF > "$BIN_DIR/cae"
+#!/bin/bash
+java -jar "\$CAE_CLI_HOME/cae-cli.jar" "\$@"
+EOF
+
+chmod +x "$BIN_DIR/cae"
+
+PROFILE_FILE="$HOME/.bashrc"
+if ! grep -q "CAE_CLI_HOME" "$PROFILE_FILE"; then
+  echo "" >> "$PROFILE_FILE"
+  echo "# CAE CLI configuration" >> "$PROFILE_FILE"
+  echo "export CAE_CLI_HOME=\"$INSTALL_DIR\"" >> "$PROFILE_FILE"
+  echo "export CAE_META_STRUCTURE_TEMPLATES_PATH=\"$INSTALL_DIR/file-templates\"" >> "$PROFILE_FILE"
+  echo "export PATH=\"\$CAE_CLI_HOME/bin:\$PATH\"" >> "$PROFILE_FILE"
+  echo "✅ Environment variables added to $PROFILE_FILE"
+else
+  echo "🔁 Environment variables already configured in $PROFILE_FILE"
 fi
 
-cp ./components/cae-cli.jar "$HOME/cae"
-cp -r ./components/file-templates/* "$HOME/cae/file-templates"
-
-echo "Before use cae-cli, in your .profile file, please add the following lines:"
-echo "export CAE_CLI_HOME=$HOME/cae"
-echo "export CAE_META_STRUCTURE_TEMPLATES_PATH=$HOME/cae/file-templates"
-echo "Installation completed. Please restart your terminal with 'source ~/.profile' or 'source ~/.profile'."
+echo ""
+echo "✅ Installation completed!"
+echo "👉 Please run: source ~/.bashrc"
+echo "👉 Then run: cae ls"
