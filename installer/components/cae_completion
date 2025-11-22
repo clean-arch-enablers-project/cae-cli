@@ -1,0 +1,32 @@
+_cae_autocomplete() {
+    local cur prev cmd
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    cmd="${COMP_WORDS[1]}"
+    declare -A args
+    args["new-cuc"]="--name --kotlin"
+    args["new-fuc"]="--name --kotlin"
+    args["new-project"]="--artifactId --groupId --caeVersion"
+    args["new-ruc"]="--name --kotlin"
+    args["new-suc"]="--name --kotlin"
+    args["rotate-to-monolayer"]=""
+    commands="new-cuc new-fuc new-project new-ruc new-suc rotate-to-monolayer"
+    if [[ ${COMP_CWORD} == 1 ]]; then
+        COMPREPLY=( $(compgen -W "$commands" -- $cur) )
+        return 0
+    fi
+    if [[ -n "${args[$cmd]}" ]]; then
+        local used
+        for ((i=2; i<COMP_CWORD; i++)); do
+            used+=" ${COMP_WORDS[i]}"
+        done
+        local remaining=()
+        for opt in ${args[$cmd]}; do
+            if [[ ! $used =~ $opt ]]; then
+                remaining+=("$opt")
+            fi
+        done
+        COMPREPLY=( $(compgen -W "${remaining[*]}" -- "$cur") )
+    fi
+}
+complete -F _cae_autocomplete cae

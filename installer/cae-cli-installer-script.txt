@@ -5,17 +5,24 @@ if exist %USERPROFILE%\cae (
 ) else (
 	echo Not found cae directory. Creating it.
 	mkdir %USERPROFILE%\cae
+	mkdir %USERPROFILE%\cae\file-templates
 )
-echo @echo off > %USERPROFILE%\cae\cae.bat
-echo java -jar %USERPROFILE%\cae\cae-cli.jar %%* >> %USERPROFILE%\cae\cae.bat
 
+echo @echo off > %USERPROFILE%\cae\cae.bat
+echo java -jar %%CAE_CLI_HOME%%\cae-cli.jar %%* >> %USERPROFILE%\cae\cae.bat
 
 setx CAE_CLI_HOME "%USERPROFILE%\cae"
 setx CAE_META_STRUCTURE_TEMPLATES_PATH "%USERPROFILE%\cae\file-templates"
 
-
-echo alias cae='cmd //c cae' >> %USERPROFILE%\.bashrc
-echo export CAE_META_STRUCTURE_TEMPLATES_PATH="${CAE_META_STRUCTURE_TEMPLATES_PATH}" >> %USERPROFILE%\.bashrc
-
 copy .\components\cae-cli.jar %USERPROFILE%\cae
 xcopy .\components\file-templates %USERPROFILE%\cae\file-templates /E /I /H /Y
+
+if exist .\components\cae_completion (
+	copy /Y .\components\cae_completion %USERPROFILE%\cae\cae_completion
+	echo source "$USERPROFILE/cae/cae_completion" >> %USERPROFILE%\.bashrc
+)
+
+echo.
+echo Installation completed.
+echo Restart Git Bash or run: source ~/.bashrc
+echo Then run: cae ls
